@@ -1,5 +1,4 @@
 
-import React from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import Hero from '../components/home/Hero';
@@ -14,7 +13,7 @@ import Testimonials from '../components/home/Testimonials';
 import Objectives from '../components/home/Objectives';
 import Team from '../components/home/Team';
 import Localisation from '../components/home/Localisation';
-import BlogSection from '../components/home/BlogSection';
+
 
 const Home = () => {
     return (
@@ -26,8 +25,6 @@ const Home = () => {
             <Activities />
             <Preparation />
             <Events />
-            <Formation />
-            <Sessions />
             <Testimonials />
             <Objectives />
             <Team />

@@ -2,6 +2,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faGraduationCap, faCube, faChartLine, faCheckCircle, faExclamationCircle, faTimesCircle, faClock, faMapMarkerAlt, faUsers, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
 
 const Sessions = () => {
     return (
@@ -47,7 +48,7 @@ const Sessions = () => {
                                 <span className="block text-xl font-bold text-blue-500 mb-1">150 000 FCFA</span>
                                 <span className="text-xs text-gray-600">Débutant à Avancé</span>
                             </div>
-                            <a href="#" className="py-3 px-6 rounded-md no-underline font-semibold transition-all duration-300 ease-in-out bg-blue-500 text-white hover:bg-blue-700">S'inscrire maintenant</a>
+                            <NavLink to="/programmes" className="py-3 px-6 rounded-md no-underline font-semibold transition-all duration-300 ease-in-out bg-blue-500 text-white hover:bg-blue-700">S'inscrire maintenant</NavLink>
                         </div>
                     </div>
         

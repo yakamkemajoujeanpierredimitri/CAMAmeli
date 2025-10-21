@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const BlogSection = () => {
     return (
@@ -24,7 +25,7 @@ const BlogSection = () => {
                                 <span><i className="far fa-user"></i> Admin</span>
                             </div>
                             <p>Découvrez les dernières fonctionnalités d'AutoCAD 2024 et comment elles peuvent améliorer votre productivité...</p>
-                            <a href="blog.html" className="btn">Lire l'article</a>
+                            <NavLink to="/blog" className="btn">Lire l'article</NavLink>
                         </div>
                     </div>
                     
@@ -41,7 +42,7 @@ const BlogSection = () => {
                                 <span><i className="far fa-user"></i> Admin</span>
                             </div>
                             <p>Des conseils pratiques et des méthodes éprouvées pour vous préparer efficacement aux concours d'entrée...</p>
-                            <a href="blog.html" className="btn">Lire l'article</a>
+                            <NavLink to="/blog" className="btn">Lire l'article</NavLink>
                         </div>
                     </div>
                     
@@ -58,13 +59,13 @@ const BlogSection = () => {
                                 <span><i className="far fa-user"></i> Admin</span>
                             </div>
                             <p>Découvrez le parcours inspirant de Marie K., qui a intégré une grande école après avoir suivi notre programme...</p>
-                            <a href="blog.html" className="btn">Lire l'article</a>
+                            <NavLink to="/blog" className="btn">Lire l'article</NavLink>
                         </div>
                     </div>
                 </div>
                 
                 <div className="blog-view-all">
-                    <a href="blog.html" className="btn btn-secondary">Voir toutes les actualités</a>
+                    <NavLink to="/blog" className="btn btn-secondary">Voir toutes les actualités</NavLink>
                 </div>
             </div>
         </section>

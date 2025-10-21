@@ -41,6 +41,7 @@ const getFileById = async (fileId)=>{
 const getFileByCategory = async (categoryId)=>{
     try {
         const response = await axiosInstance.get(`/post/getfile/${categoryId}`);
+        //console.log(response.data);
         return { data: response.data };
     } catch (error) {
         const errorMessage = error.response?.data?.message || 'Failed to retrieve files';
@@ -68,3 +69,11 @@ const deleteFile = async (fileId)=>{
         return { error: errorMessage };
     }
 };
+export {
+    deleteFile,
+    createFile,
+    getAllFiles,
+    getFileById,
+    getFileByCategory,
+    updateFile
+}

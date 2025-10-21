@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const RelatedPosts = () => {
     const posts = [
@@ -48,7 +49,7 @@ const RelatedPosts = () => {
                                     <span><i className="far fa-user"></i> {post.author}</span>
                                 </div>
                                 <p className="text-gray-600 leading-relaxed mb-5">{post.excerpt}</p>
-                                <a href="#" className="inline-block py-2 px-5 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Lire l'article</a>
+                                <NavLink to={`/programmes/${post.category.toLowerCase()}`} className="inline-block py-2 px-5 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Lire l'article</NavLink>
                             </div>
                         </div>
                     ))}

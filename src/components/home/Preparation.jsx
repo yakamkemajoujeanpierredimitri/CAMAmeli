@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Preparation = () => {
     return (
@@ -49,8 +50,8 @@ const Preparation = () => {
                     </div>
 
                     <div className="flex gap-4 flex-wrap">
-                        <button className="border-none cursor-pointer rounded-lg font-medium py-2.5 px-4 transition-all duration-300 ease-in-out bg-black text-white hover:bg-gray-800">Voir les programmes</button>
-                        <button className="border-none cursor-pointer rounded-lg font-medium py-2.5 px-4 transition-all duration-300 ease-in-out bg-gray-100 text-black hover:bg-gray-200">Demander des infos</button>
+                        <NavLink to="/programmes" className="border-none cursor-pointer rounded-lg font-medium py-2.5 px-4 transition-all duration-300 ease-in-out bg-black text-white hover:bg-gray-800">Voir les programmes</NavLink>
+                        <NavLink to="/contact" className="border-none cursor-pointer rounded-lg font-medium py-2.5 px-4 transition-all duration-300 ease-in-out bg-gray-100 text-black hover:bg-gray-200">Demander des infos</NavLink>
                     </div>
                 </div>
 

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const CategorySection = ({ title, description, programs, imageUrl, imageAlt, reverse = false }) => {
     return (
@@ -21,8 +22,8 @@ const CategorySection = ({ title, description, programs, imageUrl, imageAlt, rev
                             ))}
                         </div>
                         <div className="flex gap-4 mt-5">
-                            <a href="programmes.html" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Voir les programmes</a>
-                            <a href="contact.html" className="inline-block py-3 px-6 bg-gray-600 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-gray-700">Demander des infos</a>
+                            <NavLink to="/programmes" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Voir les programmes</NavLink>
+                            <NavLink to="/contact" className="inline-block py-3 px-6 bg-gray-600 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-gray-700">Demander des infos</NavLink>
                         </div>
                     </div>
                     <div className={`category-image ${reverse ? 'order-1' : ''}`}>

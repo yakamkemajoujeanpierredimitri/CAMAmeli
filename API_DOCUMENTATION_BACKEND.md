@@ -153,7 +153,10 @@ Create a new file. (Requires admin privileges)
 * `location`:string
 * `date`:Date
 * `apply`:number
-* `categoryEvent`:string enum: ['software', 'business', 'concours']
+* `categoryEvent`:string enum: ['software', 'business', 'concours'],
+ startTime: 'time',
+  endTime: 'time',
+  status:'string',
 
 
 **Responses**:
@@ -174,8 +177,12 @@ Create a new file. (Requires admin privileges)
             "location":"string",
             "date":"Date",
             "apply":"number",
-            "categoryDetail":"string"
-          }
+            "categoryDetail":"string",
+             "startTime": "time",
+        "endTime":"time",
+
+          },
+          "status":"string",
       }
     }
     ```

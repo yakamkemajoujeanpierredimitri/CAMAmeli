@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const BlogPost = () => {
     return (
@@ -74,20 +75,20 @@ const BlogPost = () => {
                     </div>
                     
                     <div className="flex justify-between my-16 py-8 border-t border-b border-gray-200">
-                        <a href="#" className="flex items-center gap-4 text-blue-500 font-semibold transition-colors duration-300 hover:text-blue-700">
+                        <NavLink to="/programmes?concours" className="flex items-center gap-4 text-blue-500 font-semibold transition-colors duration-300 hover:text-blue-700">
                             <i className="fas fa-arrow-left text-2xl"></i>
                             <div>
                                 <span>Article précédent</span>
                                 <p>Stratégies de Réussite aux Concours</p>
                             </div>
-                        </a>
-                        <a href="#" className="flex items-center gap-4 text-blue-500 font-semibold transition-colors duration-300 hover:text-blue-700">
+                        </NavLink>
+                        <NavLink to="/programmes?temoignages" className="flex items-center gap-4 text-blue-500 font-semibold transition-colors duration-300 hover:text-blue-700">
                             <div>
                                 <span>Article suivant</span>
                                 <p>Parcours d'Excellence : Témoignage d'une Ancienne Étudiante</p>
                             </div>
                             <i className="fas fa-arrow-right text-2xl"></i>
-                        </a>
+                        </NavLink>
                     </div>
                     
                     <div className="bg-gray-50 rounded-lg p-8 my-12 flex gap-5 items-center">

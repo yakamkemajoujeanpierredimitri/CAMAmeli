@@ -2,7 +2,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faUser, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
-
+import { NavLink } from 'react-router-dom';
 const ActivitiesContent = () => {
     return (
         <section className="py-20 bg-white">
@@ -16,7 +16,7 @@ const ActivitiesContent = () => {
                         </div>
                         <h3 className="text-2xl mb-4 text-gray-800">Formations Logicielles</h3>
                         <p className="text-gray-600 leading-relaxed mb-5">Maîtrisez les logiciels professionnels les plus demandés dans l'architecture et l'ingénierie. Nos formations sont dispensées par des experts du domaine et s'adaptent à tous les niveaux.</p>
-                        <a href="programmes.html" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</a>
+                        <NavLink to="/programmes" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</NavLink>
                     </div>
                     
                     <div className="bg-gray-50 rounded-lg p-8 shadow-lg transition duration-300 ease-in-out border border-gray-200 text-center hover:-translate-y-2 hover:shadow-xl">
@@ -25,7 +25,7 @@ const ActivitiesContent = () => {
                         </div>
                         <h3 className="text-2xl mb-4 text-gray-800">Préparation aux Concours</h3>
                         <p className="text-gray-600 leading-relaxed mb-5">Préparez-vous efficacement aux concours d'entrée et examens avec nos méthodes éprouvées. Nous offrons des programmes intensifs et personnalisés pour maximiser vos chances de réussite.</p>
-                        <a href="programmes.html" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</a>
+                        <NavLink to="/programmes" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</NavLink>
                     </div>
                     
                     <div className="bg-gray-50 rounded-lg p-8 shadow-lg transition duration-300 ease-in-out border border-gray-200 text-center hover:-translate-y-2 hover:shadow-xl">
@@ -34,7 +34,7 @@ const ActivitiesContent = () => {
                         </div>
                         <h3 className="text-2xl mb-4 text-gray-800">Conférences & Événements</h3>
                         <p className="text-gray-600 leading-relaxed mb-5">Participez à nos événements pour rester à la pointe des dernières tendances et innovations. Nos conférences sont animées par des professionnels reconnus dans leurs domaines.</p>
-                        <a href="programmes.html" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</a>
+                        <NavLink to="/programmes" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</NavLink>
                     </div>
                 </div>
             </div>
