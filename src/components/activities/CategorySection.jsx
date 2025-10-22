@@ -2,24 +2,28 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const CategorySection = ({ title, description, programs, imageUrl, imageAlt, reverse = false }) => {
+const CategorySection = ({Accurment , reverse = false}) => {
+    if(!Accurment || Object.keys(Accurment).length === 0){
+        return null;
+    }
     return (
         <section className={`py-20 ${reverse ? 'bg-white' : 'bg-gray-50'}`}>
             <div className="container mx-auto px-4">
                 <div className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center`}>
                     <div className={`category-text ${reverse ? 'order-2' : ''}`}>
-                        <h3 className="text-3xl mb-6 text-gray-800">{title}</h3>
-                        {description.map((p, i) => <p key={i} className="text-gray-600 leading-loose mb-5">{p}</p>)}
+                        <h1 className="text-4xl mb-2 text-bold text-gray-800 text-decoration-uppercase ">{Accurment.category}</h1>
+                        <h3 className="text-3xl mb-6 text-gray-800">{Accurment.title}</h3>
+                         <p  className="text-gray-600 leading-loose mb-5">{Accurment.description}</p>
                         <div className="mt-8">
-                            {programs.map((program, i) => (
-                                <div className="flex justify-between items-center py-4 border-b border-gray-200" key={i}>
+                            <h4 className="text-xl mb-2 text-gray-800">{Accurment.eventDetails?.categoryEvent}</h4>
+                                <div className="flex justify-between items-center py-4 border-b border-gray-200" >
                                     <div className="program-info">
-                                        <h4 className="text-xl mb-2 text-gray-800">{program.name}</h4>
-                                        <p className="text-gray-600 text-sm">Durée: {program.duration}</p>
+                                        <h4 className="text-xl mb-2 text-gray-800">{ new Date(Accurment.eventDetails?.date).toLocaleDateString()}</h4>
+                                        <p className="text-gray-600 text-sm">Durée: {Accurment.eventDetails?.startTime} - {Accurment.eventDetails?.endTime}</p>
                                     </div>
-                                    <span className={`py-1 px-3 rounded-full text-xs font-semibold bg-${program.level.toLowerCase() === 'débutant à avancé' ? 'green' : program.level.toLowerCase() === 'intermédiaire' ? 'yellow' : 'cyan'}-100 text-${program.level.toLowerCase() === 'débutant à avancé' ? 'green' : program.level.toLowerCase() === 'intermédiaire' ? 'yellow' : 'cyan'}-800`}>{program.level}</span>
+                                 
                                 </div>
-                            ))}
+                            
                         </div>
                         <div className="flex gap-4 mt-5">
                             <NavLink to="/programmes" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Voir les programmes</NavLink>
@@ -27,7 +31,7 @@ const CategorySection = ({ title, description, programs, imageUrl, imageAlt, rev
                         </div>
                     </div>
                     <div className={`category-image ${reverse ? 'order-1' : ''}`}>
-                        <img src={imageUrl} alt={imageAlt} className="w-full rounded-lg shadow-xl" />
+                        <img src={Accurment.fileurl} alt={'file'} className="w-full object-contain rounded-lg shadow-xl" />
                     </div>
                 </div>
             </div>

@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { getFileByCategory } from '../../service/file.service';
+import { Logout } from '../../service/auth.service';
 
 const AdminDashboard = () => {
     const [eventsCount, setEventsCount] = useState(0);
@@ -11,8 +12,9 @@ const AdminDashboard = () => {
     const [testimonialsCount, setTestimonialsCount] = useState(0);
     const [testimonialsPending, setTestimonialsPending] = useState(0);
     const [studentsCount, setStudentsCount] = useState(0);
-
+    const navigate = useNavigate();
     useEffect(() => {
+
         const fetchAll = async () => {
             try {
                 const [eventsRes, formationsRes, testimonialsRes] = await Promise.all([
@@ -57,7 +59,15 @@ const AdminDashboard = () => {
         };
         fetchAll();
     }, []);
-
+const logout = async ()=>{
+    const res = await Logout();
+    if(!res.error){
+        window.location.reload();
+    }
+    if(res.success){
+        navigate('/');
+    }
+}
     return (
         <div className="min-h-screen flex flex-col bg-gray-100">
             {/* Header */}
@@ -74,7 +84,7 @@ const AdminDashboard = () => {
                             </div>
                         </div>
                         <div>
-                            <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition duration-300">
+                            <button onClick={() => logout()} className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition duration-300">
                                 <i className="bi bi-box-arrow-right mr-2"></i>
                                 Déconnexion
                             </button>

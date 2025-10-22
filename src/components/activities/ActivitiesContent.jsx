@@ -1,13 +1,44 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faUser, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
-const ActivitiesContent = () => {
+import { getFileByCategory } from '../../service/file.service';
+import { Title } from 'chart.js';
+import Card from '../card';
+
+const ActivitiesContent = ({Title='Domaines d\'Activité'}) => {
+    const [showModal, setShowModal] = useState(false);
+    const [formations, setFormations] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const [modalTitle, setModalTitle] = useState('');
+
+    const openModal = async (category, title) => {
+        setSelectedCategory(category);
+        setModalTitle(title);
+        setShowModal(true);
+        try {
+            const { data } = await getFileByCategory(category);
+            if (data) {
+                setFormations(data);
+            } else {
+                setFormations([]);
+            }
+        } catch (error) {
+            console.error("Failed to fetch formations:", error);
+            setFormations([]);
+        }
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+        setFormations([]);
+        setSelectedCategory('');
+        setModalTitle('');
+    };
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl text-center mb-12 text-gray-800 relative">Domaines d'Activité<div className="absolute bottom-[-15px] left-1/2 -translate-x-1/2 w-20 h-1 bg-blue-500 rounded-full"></div></h2>
+                <h2 className="text-4xl text-center mb-12 text-gray-800 relative">{Title}<div className="absolute bottom-[-15px] left-1/2 -translate-x-1/2 w-20 h-1 bg-blue-500 rounded-full"></div></h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                     <div className="bg-gray-50 rounded-lg p-8 shadow-lg transition duration-300 ease-in-out border border-gray-200 text-center hover:-translate-y-2 hover:shadow-xl">
@@ -16,7 +47,7 @@ const ActivitiesContent = () => {
                         </div>
                         <h3 className="text-2xl mb-4 text-gray-800">Formations Logicielles</h3>
                         <p className="text-gray-600 leading-relaxed mb-5">Maîtrisez les logiciels professionnels les plus demandés dans l'architecture et l'ingénierie. Nos formations sont dispensées par des experts du domaine et s'adaptent à tous les niveaux.</p>
-                        <NavLink to="/programmes" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</NavLink>
+                        <button onClick={() => openModal('formation', 'Formations Logicielles')} className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</button>
                     </div>
                     
                     <div className="bg-gray-50 rounded-lg p-8 shadow-lg transition duration-300 ease-in-out border border-gray-200 text-center hover:-translate-y-2 hover:shadow-xl">
@@ -25,7 +56,7 @@ const ActivitiesContent = () => {
                         </div>
                         <h3 className="text-2xl mb-4 text-gray-800">Préparation aux Concours</h3>
                         <p className="text-gray-600 leading-relaxed mb-5">Préparez-vous efficacement aux concours d'entrée et examens avec nos méthodes éprouvées. Nous offrons des programmes intensifs et personnalisés pour maximiser vos chances de réussite.</p>
-                        <NavLink to="/programmes" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</NavLink>
+                        <button onClick={() => openModal('event', 'Préparation aux Concours')} className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</button>
                     </div>
                     
                     <div className="bg-gray-50 rounded-lg p-8 shadow-lg transition duration-300 ease-in-out border border-gray-200 text-center hover:-translate-y-2 hover:shadow-xl">
@@ -34,10 +65,35 @@ const ActivitiesContent = () => {
                         </div>
                         <h3 className="text-2xl mb-4 text-gray-800">Conférences & Événements</h3>
                         <p className="text-gray-600 leading-relaxed mb-5">Participez à nos événements pour rester à la pointe des dernières tendances et innovations. Nos conférences sont animées par des professionnels reconnus dans leurs domaines.</p>
-                        <NavLink to="/programmes" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</NavLink>
+                        <button onClick={() => openModal('event', 'Conférences & Événements')} className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</button>
                     </div>
                 </div>
             </div>
+            {showModal && (
+                <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50">
+                    <div className={`bg-white rounded-lg shadow-xl p-8 m-4  ${formations.length > 0 ? '': 'max-w-2xl'} w-full relative`}>
+                        <h3 className="text-3xl font-bold text-gray-800 mb-6 text-center">{modalTitle}</h3>
+                        <button
+                            onClick={closeModal}
+                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl"
+                        >
+                            &times;
+                        </button>
+                        {formations.length > 0 ? (
+                            
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+                                {formations.map((formation) => (
+                                    <Card key={formation._id} post={formation} />
+                                ))}
+                            </div>
+                        ) : (
+                            <p className="text-center text-gray-600 text-lg py-8">
+                                Nothing available for the moment. Please check back later!
+                            </p>
+                        )}
+                    </div>
+                </div>
+            )}
         </section>
     );
 };
