@@ -50,9 +50,9 @@ const Footer = () => {
                     <div className="footer-section">
                         <h4 className="text-xl font-semibold mb-4 text-blue-500 flex items-center gap-2"><FontAwesomeIcon icon={faPhone} className="text-base" /> Contact</h4>
                         <div className="text-gray-400">
-                            <p className="flex items-start gap-2 mb-4"><FontAwesomeIcon icon={faMapMarkerAlt} className="text-white mt-1 w-5" /> Cocody Angré, Rue des Jardins Abidjan, Côte d'Ivoire</p>
-                            <p className="flex items-start gap-2 mb-4"><FontAwesomeIcon icon={faPhone} className="text-white mt-1 w-5" /> +225 07 XX XX</p>
-                            <p className="flex items-start gap-2 mb-4"><FontAwesomeIcon icon={faEnvelope} className="text-white mt-1 w-5" /> info@cama-formation.ci</p>
+                            <p className="flex items-start gap-2 mb-4"><FontAwesomeIcon icon={faMapMarkerAlt} className="text-white mt-1 w-5" /> Molyko, Buea, SouthWest, Cameroon</p>
+                            <p className="flex items-start gap-2 mb-4"><FontAwesomeIcon icon={faPhone} className="text-white mt-1 w-5" /> +237 67 88 52 705</p>
+                            <p className="flex items-start gap-2 mb-4"><FontAwesomeIcon icon={faEnvelope} className="text-white mt-1 w-5" /> camacivmech@gmail.com</p>
                         </div>
                     </div>
                 </div>

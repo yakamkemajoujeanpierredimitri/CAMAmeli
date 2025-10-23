@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faInstagram, faLinkedinIn, faYoutube, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faInstagram, faLinkedinIn, faYoutube, faWhatsapp, faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 const SocialMedia = () => {
     return (
@@ -20,14 +20,14 @@ const SocialMedia = () => {
                             Instagram
                         </a>
                         <a href="#" className="inline-flex items-center justify-center gap-2.5 py-3 px-6 rounded-full font-semibold text-white transition duration-300 ease-in-out min-w-[160px] hover:-translate-y-1 hover:shadow-lg bg-[#0077b5]">
-                            <FontAwesomeIcon icon={faLinkedinIn} />
-                            LinkedIn
+                            <FontAwesomeIcon icon={faTiktok} />
+                            TikTok
                         </a>
                         <a href="#" className="inline-flex items-center justify-center gap-2.5 py-3 px-6 rounded-full font-semibold text-white transition duration-300 ease-in-out min-w-[160px] hover:-translate-y-1 hover:shadow-lg bg-red-600">
                             <FontAwesomeIcon icon={faYoutube} />
                             YouTube
                         </a>
-                        <a href="#" className="inline-flex items-center justify-center gap-2.5 py-3 px-6 rounded-full font-semibold text-white transition duration-300 ease-in-out min-w-[160px] hover:-translate-y-1 hover:shadow-lg bg-green-500">
+                        <a href="https://whatsapp.com/channel/0029Vb5jCL16WaKhnWl0bn3q" className="inline-flex items-center justify-center gap-2.5 py-3 px-6 rounded-full font-semibold text-white transition duration-300 ease-in-out min-w-[160px] hover:-translate-y-1 hover:shadow-lg bg-green-500">
                             <FontAwesomeIcon icon={faWhatsapp} />
                             WhatsApp
                         </a>

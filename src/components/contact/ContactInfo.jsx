@@ -15,9 +15,9 @@ const ContactInfo = () => {
                 <div className="info-content">
                     <h4 className="text-lg mb-2 text-gray-800">Adresse</h4>
                     <p className="text-gray-600 leading-relaxed">
-                        Cocody Angré, Rue des Jardins<br />
-                        Face au Centre Commercial<br />
-                        Abidjan, Côte d'Ivoire
+                        Molyko<br />
+                        Buea<br />
+                        SouthWest, Cameroon
                     </p>
                 </div>
             </div>
@@ -29,8 +29,7 @@ const ContactInfo = () => {
                 <div className="info-content">
                     <h4 className="text-lg mb-2 text-gray-800">Téléphone</h4>
                     <p className="text-gray-600 leading-relaxed">
-                        +225 07 XX XX XX XX<br />
-                        +225 05 XX XX XX XX
+                        +237 67 88 52 705<br />
                     </p>
                 </div>
             </div>
@@ -42,8 +41,7 @@ const ContactInfo = () => {
                 <div className="info-content">
                     <h4 className="text-lg mb-2 text-gray-800">Email</h4>
                     <p className="text-gray-600 leading-relaxed">
-                        info@cama-formation.ci<br />
-                        contact@cama-formation.ci
+                        camacivmech@gmail.com
                     </p>
                 </div>
             </div>
