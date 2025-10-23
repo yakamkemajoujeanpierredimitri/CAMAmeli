@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { sendProblem } from '../../service/user.service';
 
 const ContactForm = () => {
     const [valuesForm ,setvalueForm] = useState({
@@ -27,7 +28,11 @@ const ContactForm = () => {
    if(!validate()){
     return;
    }
-   console.log(valuesForm);
+    const res =  await sendProblem(valuesForm);
+    if(res.error){
+        return alert(res.error);
+    }
+    alert('envoyer');
   }
     
     return (

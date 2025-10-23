@@ -33,4 +33,14 @@ const userCheck = async ()=>{
         return { error: errorMessage };
     }
 };
-export { updateUserinfo, addAdmin, userCheck };
+const sendProblem = async (data)=>{
+    try {
+        await axiosInstance.post(`/user/problem`,data);
+        return { success:true };
+    } catch (error) {
+        const errorMessage = error.response?.data?.message || 'Failed to check user information';
+        console.error(error);
+        return { error: errorMessage };
+    }
+};
+export { updateUserinfo, addAdmin, userCheck , sendProblem };

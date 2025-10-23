@@ -1,8 +1,20 @@
 
-import React from 'react';
-import { NavLink } from 'react-router-dom';
 
+import { NavLink } from 'react-router-dom';
+import {useAuth} from '../../context/authContext';
+import { Logout } from '../../service/auth.service';
 const Header = () => {
+    const { user ,dispatch } = useAuth();
+    const logout = async ()=>{
+        const res = await Logout();
+        if(!res.error){
+            window.location.reload();
+        }
+        dispatch({type:'LOGOUT'});
+        if(res.success){
+            navigate('/');
+        }
+    }
     return (
         <header className="bg-white shadow-md fixed w-full top-0 z-50">
             <nav className="py-4">
@@ -18,6 +30,10 @@ const Header = () => {
                         <li><NavLink to="/gallery" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Galerie</NavLink></li>
                         <li><NavLink to="/blog" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Blog</NavLink></li>
                         <li><NavLink to="/contact" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Contact</NavLink></li>
+                        {user?.role === 'admin' &&(<li><NavLink to="/admin" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Admin</NavLink></li>)}
+                        {user?.role === 'user' &&(<li><button onClick={()=>logout()} className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Logout</button ></li>)}
+                        {!user &&(<li><NavLink to="/signin" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Login</NavLink></li>)}
+
                     </ul>
                     <div className="md:hidden flex flex-col cursor-pointer">
                         <span className="w-6 h-0.5 bg-gray-800 my-0.5 transition-all duration-300"></span>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { getFileByCategory } from '../../service/file.service';
 import { Logout } from '../../service/auth.service';
-
+import { useAuth } from '../../context/authContext';
 const AdminDashboard = () => {
     const [eventsCount, setEventsCount] = useState(0);
     const [preparationCount, setPreparationCount] = useState(0);
@@ -12,6 +12,7 @@ const AdminDashboard = () => {
     const [testimonialsCount, setTestimonialsCount] = useState(0);
     const [testimonialsPending, setTestimonialsPending] = useState(0);
     const [studentsCount, setStudentsCount] = useState(0);
+    const { user,dispatch } = useAuth();
     const navigate = useNavigate();
     useEffect(() => {
 
@@ -64,6 +65,7 @@ const logout = async ()=>{
     if(!res.error){
         window.location.reload();
     }
+     dispatch({type:'LOGOUT'});
     if(res.success){
         navigate('/');
     }
