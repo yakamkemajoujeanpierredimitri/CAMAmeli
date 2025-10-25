@@ -33,8 +33,6 @@ function App() {
         <Route path="/activities" element={<Activites />} />
         <Route path="/programmes" element={<Programmes />} />
         <Route path="/gallery" element={<Galerie />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />

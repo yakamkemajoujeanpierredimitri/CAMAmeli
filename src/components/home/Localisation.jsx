@@ -10,8 +10,8 @@ const Localisation = () => {
                 <div className="bg-gray-100 rounded-xl h-72 flex justify-center items-center">
                     <div className="text-center text-gray-500">
                         <div className="text-4xl mb-2.5">📍</div>
-                        <h4 className="text-lg text-gray-700 mb-1">Carte interactive</h4>
-                        <p className="text-sm text-gray-500">Cocody Angré, Abidjan - Côte d'Ivoire</p>
+                        <h4 className="text-lg text-gray-700 mb-1">molyko</h4>
+                        <p className="text-sm text-gray-500">Buea, South-West   Cameroon</p>
                     </div>
                 </div>
             </div>

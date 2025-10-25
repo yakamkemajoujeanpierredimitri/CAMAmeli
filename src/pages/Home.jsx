@@ -7,8 +7,6 @@ import About from '../components/home/About';
 import Activities from '../components/home/Activities';
 import Preparation from '../components/home/Preparation';
 import Events from '../components/home/Events';
-import Formation from '../components/home/Formation';
-import Sessions from '../components/home/Sessions';
 import Testimonials from '../components/home/Testimonials';
 import Objectives from '../components/home/Objectives';
 import Team from '../components/home/Team';

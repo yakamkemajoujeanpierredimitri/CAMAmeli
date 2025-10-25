@@ -21,7 +21,8 @@ const GalleryContent = () => {
  const fetchGalleryItems = async () => {
     const res = await getAllFiles();
     if(res.data){
-        const items = res.data.filter(file => file.format === 'image');
+        // include both images and videos in the gallery
+        const items = res.data.filter(file => file.format === 'image' || file.format === 'video');
         setGalleryItems(items);
     }
  }
@@ -54,9 +55,21 @@ const GalleryContent = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                     {filteredItems.map((item, index) => (
-                        <div className="relative rounded-lg overflow-hidden shadow-lg h-72" key={index} onClick={() => openModal(item.fileurl)}>
-                            <img src={item.fileurl} alt={''} className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-110" />
-                            <div className="absolute top-0 left-0 w-full h-full bg-black/60 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">
+                        <div className="relative rounded-lg overflow-hidden shadow-lg h-72 group" key={index} onClick={() => openModal({ src: item.fileurl, format: item.format })}>
+                            {item.format === 'video' ? (
+                                <div className="w-full h-full bg-black flex items-center justify-center">
+                                    <video src={item.fileurl} className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" muted playsInline preload="metadata"/>
+                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                        <div className="bg-black/50 rounded-full p-3">
+                                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <img src={item.fileurl} alt={item.title || ''} className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" />
+                            )}
+
+                            <div className="absolute top-0 left-0 w-full h-full bg-black/60 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                 <div className="text-white text-center p-5">
                                     <h3 className="text-xl font-bold mb-2.5">{item.title}</h3>
                                     <p className="text-gray-300 text-sm">{item.description}</p>
@@ -71,7 +84,11 @@ const GalleryContent = () => {
                 <div className="fixed top-0 left-0 w-full h-full bg-black/90 z-50 flex items-center justify-center" onClick={closeModal}>
                     <span className="absolute top-5 right-8 text-white text-5xl cursor-pointer">&times;</span>
                     <div className="relative max-w-[90%] max-h-[90%]">
-                        <img src={modalImage} alt="Image agrandie" className="max-w-full max-h-[80vh] block" />
+                        {modalImage.format === 'video' ? (
+                            <video src={modalImage.src} controls autoPlay className="max-w-full max-h-[80vh] block" />
+                        ) : (
+                            <img src={modalImage.src} alt="Image agrandie" className="max-w-full max-h-[80vh] block" />
+                        )}
                     </div>
                 </div>
             )}
