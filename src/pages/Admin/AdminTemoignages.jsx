@@ -43,13 +43,11 @@ const AdminTemoignages = () => {
         const result = await createFile(formDataFd, setProgress);
         if (result.error) {
             console.error(result.error);
+            alert('Erreur lors de la création du témoignage : ' + result.error);
         } else {
             setIsModalOpen(false);
             // Refresh the list of testimonies
-            const fetchResult = await getFileByCategory('temoignage');
-            if (!fetchResult.error) {
-                setTestimonies(fetchResult.data);
-            }
+           setTestimonies(prev => [...prev, result.data]);
         }
     };
 
@@ -78,7 +76,7 @@ const AdminTemoignages = () => {
             </header>
 
             {/* Navigation */}
-            <nav className="bg-white shadow-sm sticky top-0 z-40">
+            <nav className="bg-white shadow-sm sticky top-0 ">
                 <div className="container mx-auto">
                     <ul className="flex justify-center p-2">
                         <li className="nav-item">
@@ -156,8 +154,8 @@ const AdminTemoignages = () => {
                                                     <div className="flex items-center">
                                                         <div className="text-3xl text-gray-400 mr-3"><i className="bi bi-person-circle"></i></div>
                                                         <div>
-                                                            <div className="font-semibold text-gray-800">{testimony.user.name}</div>
-                                                            <div className="text-sm text-gray-500">{testimony.user.email}</div>
+                                                            <div className="font-semibold text-gray-800">{testimony?.user?.name}</div>
+                                                            <div className="text-sm text-gray-500">{testimony?.user?.email}</div>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -196,7 +194,7 @@ const AdminTemoignages = () => {
                                                         <button className="text-indigo-600 hover:text-indigo-800 transition-colors duration-200" title="Voir détails">
                                                             <i className="bi bi-eye text-lg"></i>
                                                         </button>
-                                                        <button className="text-red-600 hover:text-red-800 transition-colors duration-200" title="Supprimer">
+                                                        <button onClick={()=>handleDelete(testimony._id)} className="text-red-600 hover:text-red-800 cursor-pointer transition-colors duration-200" title="Supprimer">
                                                             <i className="bi bi-trash text-lg"></i>
                                                         </button>
                                                     </div>
@@ -214,7 +212,7 @@ const AdminTemoignages = () => {
                             <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
                         </div>)}
             {isModalOpen && (
-                <div className="fixed z-10 inset-0 overflow-y-auto">
+                <div className="fixed z-20 inset-0 overflow-y-auto">
                     <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                         <span className="hidden sm:inline-block sm:align-middle sm:h-screen"></span>&#8203;
                         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">

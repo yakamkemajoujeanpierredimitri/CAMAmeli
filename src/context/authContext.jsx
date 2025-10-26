@@ -21,6 +21,7 @@ const authReducer = (state,action)=>{
                 ...authInitialState
             }
         case "AUTH_CHECK":
+            //console.log('Auth Check User:', action.payload.user);
             return{
                 user:action.payload.user,
                 isAuthenticated:action.payload.check,
@@ -58,6 +59,7 @@ export const AuthProvider = ({children})=>{
         if(res.error){
             dispatch({type:"ERROR",payload:res.error});
         }else{
+            ///console.log('Auth Check User:', res.data);
             dispatch({type:"AUTH_CHECK",payload:{user:res.data,check:true}});
         }
     }

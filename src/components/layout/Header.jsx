@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 import {useAuth} from '../../context/authContext';
 import { Logout } from '../../service/auth.service';
 const Header = () => {
-    const { user ,dispatch } = useAuth();
+    const { state ,dispatch } = useAuth();
+    const { user } = state;
     const logout = async ()=>{
         const res = await Logout();
         if(!res.error){

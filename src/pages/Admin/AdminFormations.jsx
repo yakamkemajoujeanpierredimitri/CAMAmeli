@@ -204,9 +204,9 @@ const handleDelete = async(id)=>{
                                                 <td className="py-4 px-5 text-sm text-gray-600">
                                                     <div>{formation?.eventDetails?.startTime ? formation?.eventDetails?.startTime : ''} - {formation?.eventDetails?.endTime ? formation?.eventDetails?.endTime : ''} </div>
                                                 </td>
-                                                <td className="py-4 px-5 text-sm font-semibold text-gray-800">{formation.price} FCFA</td>
+                                                <td className="py-4 px-5 text-sm font-semibold text-gray-800">{formation.price > 0 ? formation.price + ' FCFA' : 'Gratuit'}</td>
                                                 <td className="py-4 px-5">
-                                                    <div className="text-sm text-gray-600"><i className="bi bi-people mr-1"></i> {formation?.eventDetails?.apply}</div>
+                                                    <div className="text-sm text-gray-600"><i className="bi bi-people mr-1"></i> {formation?.eventDetails?.apply ? formation?.eventDetails?.apply : 'Illimité'}</div>
                                                 </td>
                                                 <td className="py-4 px-5">
                                                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold ${formation?.status === 'active' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
@@ -233,6 +233,7 @@ const handleDelete = async(id)=>{
                                                                     startTime: formatTime(formation?.eventDetails?.startTime),
                                                                     endTime: formatTime(formation?.eventDetails?.endTime),
                                                                     status: formation?.status || '',
+                                                                    category: 'formation',
                                                                 };
                                                                 setFormData(fd);
                                                                 setSelectedFormation(formation);
@@ -321,6 +322,7 @@ const handleDelete = async(id)=>{
                                                 const result = await createFile(formDataFd, setProgress);
                                                 if (result?.error) {
                                                     console.error(result.error);
+                                                    alert(result.error);
                                                 } else {
                                                     setIsModalOpen(false);
                                                     const fetchResult = await getFileByCategory('formation');

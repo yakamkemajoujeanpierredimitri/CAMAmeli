@@ -72,37 +72,9 @@ const AdminEvenements = () => {
         fetchEvents();
     }, []);
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
+   
 
-    const handleFileChange = (e) => {
-        setFormData({ ...formData, file: e.target.files[0] });
-    };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const data = new FormData();
-        for (const key in formData) {
-            data.append(key, formData[key]);
-        }
-
-        const result = await createFile(data, setProgress);
-        if (result.error) {
-            // Handle error
-            console.error(result.error);
-        } else {
-            // Handle success
-            console.log(result.data);
-            setIsModalOpen(false);
-            // Refresh the list of events
-            const fetchResult = await getFileByCategory('event');
-            if (!fetchResult.error) {
-                setEvents(fetchResult.data);
-            }
-        }
-    };
 
     return (
         <div className="min-h-screen flex flex-col bg-gray-100">
@@ -207,20 +179,20 @@ const AdminEvenements = () => {
                                         {events.map(event => (
                                             <tr key={event._id} className="hover:bg-gray-50 transition-colors duration-200">
                                                 <td className="py-4 px-5">
-                                                    <div className="font-semibold text-gray-800">{event.title}</div>
+                                                    <div className="font-semibold text-gray-800">{event.filename}</div>
                                                 </td>
                                                 <td className="py-4 px-5">
-                                                    <span className={`inline-flex items-center bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-semibold`}>
-                                                        <i className="bi bi-mic mr-1"></i> {event.eventDetails.categoryDetail}
+                                                    <span className={`inline-flex items-center bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-semibold`}>
+                                                        <i className="bi  mr-1"></i> {event.eventDetails.categoryEvent}
                                                     </span>
                                                 </td>
                                                 <td className="py-4 px-5 text-sm text-gray-600">
                                                     <div><i className="bi bi-calendar-date mr-1"></i> {new Date(event.eventDetails.date).toLocaleDateString()}</div>
                                                 </td>
                                                 <td className="py-4 px-5 text-sm text-gray-600"><i className="bi bi-geo-alt mr-1"></i> {event.eventDetails.location}</td>
-                                                <td className="py-4 px-5 text-sm font-semibold text-gray-800">{event.price} FCFA</td>
+                                                <td className="py-4 px-5 text-sm font-semibold text-gray-800">{event?.price>0 ? event.price + ' FCFA' : 'Gratuit'}</td>
                                                 <td className="py-4 px-5">
-                                                    <div className="text-sm text-gray-600"><i className="bi bi-people mr-1"></i> {event.apply}</div>
+                                                    <div className="text-sm text-gray-600"><i className="bi bi-people mr-1"></i> {event?.eventDetails?.apply === 0 ? 'Illimité' : event.eventDetails?.apply}</div>
                                                 </td>
                                                 <td className="py-4 px-5">
                                                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold ${event.status === 'active' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
@@ -236,9 +208,10 @@ const AdminEvenements = () => {
                                                                     // populate event into formData
                                                                     const ev = event;
                                                                     const fd = {
-                                                                        title: ev.title || '',
+                                                                        title: ev.filename || '',
+                                                                        category: 'event',
                                                                         description: ev.description || '',
-                                                                        categoryEvent: ev?.eventDetails?.categoryDetail || ev?.eventDetails?.categoryDetail || '',
+                                                                        categoryEvent: ev?.eventDetails?.categoryEvent || ev?.eventDetails?.categoryEvent || '',
                                                                         price: ev.price || '',
                                                                         file: null,
                                                                         location: ev?.eventDetails?.location || '',
@@ -333,6 +306,7 @@ const AdminEvenements = () => {
                                                 const result = await createFile(formDataFd, setProgress);
                                                 if (result?.error) {
                                                     console.error(result.error);
+                                                    alert(result.error);
                                                 } else {
                                                     setIsModalOpen(false);
                                                     const fetchResult = await getFileByCategory('event');

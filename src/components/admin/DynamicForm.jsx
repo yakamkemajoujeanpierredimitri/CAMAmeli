@@ -12,7 +12,7 @@ import React, { useState } from 'react';
 const DynamicForm = ({ schema = [], initialValues = {}, onSubmit, submitLabel = 'Submit', IsEditing = false }) => {
   const [values, setValues] = useState(() => {
     const v = {};
-    
+    v.category = initialValues.category || '';
     schema.forEach(f => {
       v[f.name] = initialValues[f.name] ?? f.default ?? '';
     });
@@ -30,7 +30,8 @@ const DynamicForm = ({ schema = [], initialValues = {}, onSubmit, submitLabel = 
 
   const handleFileChange = (e) => {
     const { name, files: f } = e.target;
-    setFiles(prev => ({ ...prev, [name]: f[0] }));
+    console.log(f);
+    setValues(prev => ({ ...prev, [name]: f[0] }));
   };
 
   const validate = () => {

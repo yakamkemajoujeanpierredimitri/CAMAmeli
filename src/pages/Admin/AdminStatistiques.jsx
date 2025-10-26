@@ -26,14 +26,19 @@ const AdminStatistiques = () => {
 
                 // Example of processing data for one chart
                 const popularFormations = formations.reduce((acc, cur) => {
-                    acc[cur.title] = (acc[cur.title] || 0) + 1;
+                    acc[cur.filename] = (acc[cur.filename] || 0) + 1;
                     return acc;
                 }, {});
 
+                const formationStudents = formations.reduce((acc, cur) => acc + Number(cur.eventDetails?.apply || 0), 0);
+                const eventStudents = events.reduce((acc, cur) => acc + Number(cur.eventDetails?.apply || 0), 0);
                 setStats({
-                    totalStudents: result.data.reduce((acc, cur) => acc + (cur.apply || 0), 0),
-                    totalRevenue: result.data.reduce((acc, cur) => acc + (cur.price || 0), 0),
+                    totalStudents: formationStudents + eventStudents,
+                    totalRevenue: result.data.reduce((acc, cur) => acc + Number(cur.price || 0), 0),
                     popularFormations,
+                    totalFormations: formations.length,
+                    totalEvents: events.length,
+                    totalTestimonies: testimonies.length,
                     // ... other stats
                 });
             }
@@ -147,14 +152,23 @@ const AdminStatistiques = () => {
                         <div className="bg-white rounded-lg shadow-sm p-6 text-center">
                             <div className="text-4xl text-blue-600 mx-auto mb-3"><i className="bi bi-people"></i></div>
                             <h3 className="text-3xl font-bold text-gray-800">{stats ? stats.totalStudents : 'Loading...'}</h3>
-                            <p className="text-gray-500">Total Étudiants</p>
+                            <p className="text-gray-500">Total Étudiants (formations + événements)</p>
                         </div>
                         <div className="bg-white rounded-lg shadow-sm p-6 text-center">
                             <div className="text-4xl text-green-600 mx-auto mb-3"><i className="bi bi-cash"></i></div>
                             <h3 className="text-3xl font-bold text-gray-800">{stats ? `${stats.totalRevenue} FCFA` : 'Loading...'}</h3>
-                            <p className="text-gray-500">FCFA Revenus</p>
+                            <p className="text-gray-500">Revenus totaux</p>
                         </div>
-                        {/* ... other cards */}
+                        <div className="bg-white rounded-lg shadow-sm p-6 text-center">
+                            <div className="text-4xl text-indigo-600 mx-auto mb-3"><i className="bi bi-calendar-event"></i></div>
+                            <h3 className="text-3xl font-bold text-gray-800">{stats ? stats.totalEvents : 'Loading...'}</h3>
+                            <p className="text-gray-500">Événements</p>
+                        </div>
+                        <div className="bg-white rounded-lg shadow-sm p-6 text-center">
+                            <div className="text-4xl text-pink-600 mx-auto mb-3"><i className="bi bi-chat-quote"></i></div>
+                            <h3 className="text-3xl font-bold text-gray-800">{stats ? stats.totalTestimonies : 'Loading...'}</h3>
+                            <p className="text-gray-500">Témoignages</p>
+                        </div>
                     </div>
 
                     {/* Charts Row 1 */}
