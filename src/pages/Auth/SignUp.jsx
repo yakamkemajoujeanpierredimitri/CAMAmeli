@@ -72,7 +72,7 @@ const SignUp = () => {
                 <p className="mt-6 text-center text-gray-600">
                     Already have an account? <Link to="/signin" className="text-blue-600 hover:text-blue-800 font-medium">Sign In</Link>
                 </p>
-               <a href='http://localhost:5000/auth/google/signup'> <button className='w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md'>Signup with Google</button></a>
+               <a href='https://meliproject.onrender.com/auth/google/signup'> <button className='w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md'>Signup with Google</button></a>
             </div>
         </div>
     );
