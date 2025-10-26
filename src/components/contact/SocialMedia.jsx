@@ -23,7 +23,7 @@ const SocialMedia = () => {
                             <FontAwesomeIcon icon={faTiktok} />
                             TikTok
                         </a>
-                        <a href="https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg" className="inline-flex items-center justify-center gap-2.5 py-3 px-6 rounded-full font-semibold text-white transition duration-300 ease-in-out min-w-[160px] hover:-translate-y-1 hover:shadow-lg bg-red-600">
+                        <a href="https://youtube.com/@civilarchitecturalmechanicalac?si=wQalY-OWqA9BSWhs" className="inline-flex items-center justify-center gap-2.5 py-3 px-6 rounded-full font-semibold text-white transition duration-300 ease-in-out min-w-[160px] hover:-translate-y-1 hover:shadow-lg bg-red-600">
                             <FontAwesomeIcon icon={faYoutube} />
                             YouTube
                         </a>

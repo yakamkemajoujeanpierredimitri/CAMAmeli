@@ -16,7 +16,7 @@ const Services = () => {
                         <h3 className="text-2xl mb-2 text-gray-800">Trainings</h3>
                         <p className="text-gray-600 text-base">Professional software</p>
                     </NavLink>
-                    <NavLink to="/programmes?preparation" className="text-center p-10 rounded-lg transition-transform duration-300 ease-in-out cursor-pointer hover:-translate-y-1 hover:shadow-2xl">
+                    <NavLink to="/programs?preparation" className="text-center p-10 rounded-lg transition-transform duration-300 ease-in-out cursor-pointer hover:-translate-y-1 hover:shadow-2xl">
                         <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6">
                             <FontAwesomeIcon icon={faBook} className="text-3xl text-white" />
                         </div>

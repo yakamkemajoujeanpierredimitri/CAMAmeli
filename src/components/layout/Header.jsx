@@ -1,17 +1,19 @@
 
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {useAuth} from '../../context/authContext';
 import { Logout } from '../../service/auth.service';
+import React, { useState } from 'react';
 const Header = () => {
     const { state ,dispatch } = useAuth();
     const { user } = state;
+    const navigate = useNavigate();
+    const [menuOpen, setMenuOpen] = useState(false);
     const logout = async ()=>{
         const res = await Logout();
-        if(!res.error){
-            window.location.reload();
-        }
+        // update client state
         dispatch({type:'LOGOUT'});
+        // navigate back to home on success
         if(res.success){
             navigate('/');
         }
@@ -31,17 +33,46 @@ const Header = () => {
                         <li><NavLink to="/gallery" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Gallery</NavLink></li>
                         <li><NavLink to="/contact" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Contact</NavLink></li>
                         {user?.role === 'admin' &&(<li><NavLink to="/admin" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Admin</NavLink></li>)}
-                        {user?.role === 'user' &&(<li><button onClick={()=>logout()} className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Logout</button ></li>)}
+                        {user?.role === 'user' &&(<li><button onClick={()=>logout()} className={'text-gray-600 hover:text-blue-500 transition duration-300'}>Logout</button ></li>)}
                         {!user &&(<li><NavLink to="/signin" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Login</NavLink></li>)}
 
                     </ul>
-                    <div className="md:hidden flex flex-col cursor-pointer">
-                        <span className="w-6 h-0.5 bg-gray-800 my-0.5 transition-all duration-300"></span>
-                        <span className="w-6 h-0.5 bg-gray-800 my-0.5 transition-all duration-300"></span>
-                        <span className="w-6 h-0.5 bg-gray-800 my-0.5 transition-all duration-300"></span>
+                    <div className="md:hidden">
+                        <button
+                            aria-label="Toggle menu"
+                            aria-expanded={menuOpen}
+                            onClick={() => setMenuOpen(v => !v)}
+                            className="p-2 rounded-md inline-flex items-center justify-center text-gray-800 hover:bg-gray-100 focus:outline-none"
+                        >
+                            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                {menuOpen ? (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                ) : (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                )}
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </nav>
+            {/* Mobile menu */}
+            {menuOpen && (
+                <div className="md:hidden bg-white shadow-md border-t">
+                    <div className="container mx-auto px-4 py-4">
+                        <ul className="flex flex-col space-y-3">
+                            <li><NavLink to="/" onClick={()=>setMenuOpen(false)} className={({ isActive }) => isActive ? 'text-blue-500 font-medium' : 'text-gray-700'}>Home</NavLink></li>
+                            <li><NavLink to="/about" onClick={()=>setMenuOpen(false)} className={({ isActive }) => isActive ? 'text-blue-500 font-medium' : 'text-gray-700'}>About</NavLink></li>
+                            <li><NavLink to="/activities" onClick={()=>setMenuOpen(false)} className={({ isActive }) => isActive ? 'text-blue-500 font-medium' : 'text-gray-700'}>Our Activities</NavLink></li>
+                            <li><NavLink to="/programs" onClick={()=>setMenuOpen(false)} className={({ isActive }) => isActive ? 'text-blue-500 font-medium' : 'text-gray-700'}>Programs</NavLink></li>
+                            <li><NavLink to="/gallery" onClick={()=>setMenuOpen(false)} className={({ isActive }) => isActive ? 'text-blue-500 font-medium' : 'text-gray-700'}>Gallery</NavLink></li>
+                            <li><NavLink to="/contact" onClick={()=>setMenuOpen(false)} className={({ isActive }) => isActive ? 'text-blue-500 font-medium' : 'text-gray-700'}>Contact</NavLink></li>
+                            {user?.role === 'admin' && (<li><NavLink to="/admin" onClick={()=>setMenuOpen(false)} className={({ isActive }) => isActive ? 'text-blue-500 font-medium' : 'text-gray-700'}>Admin</NavLink></li>)}
+                            {user?.role === 'user' && (<li><button onClick={()=>{ setMenuOpen(false); logout();}} className={'text-gray-700 text-left'}>Logout</button></li>)}
+                            {!user && (<li><NavLink to="/signin" onClick={()=>setMenuOpen(false)} className={({ isActive }) => isActive ? 'text-blue-500 font-medium' : 'text-gray-700'}>Login</NavLink></li>)}
+                        </ul>
+                    </div>
+                </div>
+            )}
         </header>
     );
 };

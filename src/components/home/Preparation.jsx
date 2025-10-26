@@ -50,7 +50,7 @@ const Preparation = () => {
                     </div>
 
                     <div className="flex gap-4 flex-wrap">
-                        <NavLink to="/programmes" className="border-none cursor-pointer rounded-lg font-medium py-2.5 px-4 transition-all duration-300 ease-in-out bg-black text-white hover:bg-gray-800">See the programs</NavLink>
+                        <NavLink to="/programs" className="border-none cursor-pointer rounded-lg font-medium py-2.5 px-4 transition-all duration-300 ease-in-out bg-black text-white hover:bg-gray-800">See the programs</NavLink>
                         <NavLink to="/contact" className="border-none cursor-pointer rounded-lg font-medium py-2.5 px-4 transition-all duration-300 ease-in-out bg-gray-100 text-black hover:bg-gray-200">Request info</NavLink>
                     </div>
                 </div>

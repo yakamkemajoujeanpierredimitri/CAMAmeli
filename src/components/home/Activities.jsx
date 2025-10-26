@@ -65,7 +65,7 @@ const Activities = () => {
                                 </div>
                                 
                                 <div className="flex gap-4">
-                                    <NavLink to="/programmes" className="py-3 px-8 border-none rounded-md text-base font-semibold cursor-pointer transition-all duration-300 ease-in-out no-underline inline-block text-center bg-gray-800 text-white hover:bg-gray-700 hover:-translate-y-0.5">See the programs</NavLink>
+                                    <NavLink to="/programs" className="py-3 px-8 border-none rounded-md text-base font-semibold cursor-pointer transition-all duration-300 ease-in-out no-underline inline-block text-center bg-gray-800 text-white hover:bg-gray-700 hover:-translate-y-0.5">See the programs</NavLink>
                                     <NavLink to="/contact" className="py-3 px-8 rounded-md text-base font-semibold cursor-pointer transition-all duration-300 ease-in-out no-underline inline-block text-center bg-transparent text-gray-800 border-2 border-gray-800 hover:bg-gray-800 hover:text-white hover:-translate-y-0.5">Request info</NavLink>
                                 </div>
                             </div>
