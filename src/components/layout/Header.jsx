@@ -24,11 +24,11 @@ const Header = () => {
                         <h1 className="text-3xl font-bold text-gray-800 tracking-wider">CAMA</h1>
                     </div>
                     <ul className="hidden md:flex space-x-8">
-                        <li><NavLink to="/" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Accueil</NavLink></li>
-                        <li><NavLink to="/about" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>À propos</NavLink></li>
-                        <li><NavLink to="/activities" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Nos Activités</NavLink></li>
-                        <li><NavLink to="/programmes" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Programmes</NavLink></li>
-                        <li><NavLink to="/gallery" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Galerie</NavLink></li>
+                        <li><NavLink to="/" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Home</NavLink></li>
+                        <li><NavLink to="/about" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>About</NavLink></li>
+                        <li><NavLink to="/activities" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Our Activities</NavLink></li>
+                        <li><NavLink to="/programs" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Programs</NavLink></li>
+                        <li><NavLink to="/gallery" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Gallery</NavLink></li>
                         <li><NavLink to="/contact" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Contact</NavLink></li>
                         {user?.role === 'admin' &&(<li><NavLink to="/admin" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Admin</NavLink></li>)}
                         {user?.role === 'user' &&(<li><button onClick={()=>logout()} className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Logout</button ></li>)}

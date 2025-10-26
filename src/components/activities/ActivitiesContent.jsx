@@ -6,7 +6,7 @@ import { getFileByCategory } from '../../service/file.service';
 import { Title } from 'chart.js';
 import Card from '../card';
 
-const ActivitiesContent = ({Title='Domaines d\'Activité'}) => {
+const ActivitiesContent = ({Title='Fields of Activity'}) => {
     const [showModal, setShowModal] = useState(false);
     const [formations, setFormations] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -45,27 +45,27 @@ const ActivitiesContent = ({Title='Domaines d\'Activité'}) => {
                         <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6">
                             <FontAwesomeIcon icon={faDesktop} className="text-4xl text-white" />
                         </div>
-                        <h3 className="text-2xl mb-4 text-gray-800">Formations Logicielles</h3>
-                        <p className="text-gray-600 leading-relaxed mb-5">Maîtrisez les logiciels professionnels les plus demandés dans l'architecture et l'ingénierie. Nos formations sont dispensées par des experts du domaine et s'adaptent à tous les niveaux.</p>
-                        <button onClick={() => openModal('formation', 'Formations Logicielles')} className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</button>
+                        <h3 className="text-2xl mb-4 text-gray-800">Software Training</h3>
+                        <p className="text-gray-600 leading-relaxed mb-5">Master the most in-demand professional software in architecture and engineering. Our courses are taught by industry experts and are suitable for all levels.</p>
+                        <button onClick={() => openModal('formation', 'Software Training')} className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Learn more</button>
                     </div>
                     
                     <div className="bg-gray-50 rounded-lg p-8 shadow-lg transition duration-300 ease-in-out border border-gray-200 text-center hover:-translate-y-2 hover:shadow-xl">
                         <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6">
                             <FontAwesomeIcon icon={faUser} className="text-4xl text-white" />
                         </div>
-                        <h3 className="text-2xl mb-4 text-gray-800">Préparation aux Concours</h3>
-                        <p className="text-gray-600 leading-relaxed mb-5">Préparez-vous efficacement aux concours d'entrée et examens avec nos méthodes éprouvées. Nous offrons des programmes intensifs et personnalisés pour maximiser vos chances de réussite.</p>
-                        <button onClick={() => openModal('event', 'Préparation aux Concours')} className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</button>
+                        <h3 className="text-2xl mb-4 text-gray-800">Competition Preparation</h3>
+                        <p className="text-gray-600 leading-relaxed mb-5">Prepare effectively for entrance exams and examinations with our proven methods. We offer intensive and personalized programs to maximize your chances of success.</p>
+                        <button onClick={() => openModal('event', 'Competition Preparation')} className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Learn more</button>
                     </div>
                     
                     <div className="bg-gray-50 rounded-lg p-8 shadow-lg transition duration-300 ease-in-out border border-gray-200 text-center hover:-translate-y-2 hover:shadow-xl">
                         <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6">
                             <FontAwesomeIcon icon={faChalkboardTeacher} className="text-4xl text-white" />
                         </div>
-                        <h3 className="text-2xl mb-4 text-gray-800">Conférences & Événements</h3>
-                        <p className="text-gray-600 leading-relaxed mb-5">Participez à nos événements pour rester à la pointe des dernières tendances et innovations. Nos conférences sont animées par des professionnels reconnus dans leurs domaines.</p>
-                        <button onClick={() => openModal('event', 'Conférences & Événements')} className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">En savoir plus</button>
+                        <h3 className="text-2xl mb-4 text-gray-800">Conferences & Events</h3>
+                        <p className="text-gray-600 leading-relaxed mb-5">Participate in our events to stay at the forefront of the latest trends and innovations. Our conferences are led by recognized professionals in their fields.</p>
+                        <button onClick={() => openModal('event', 'Conferences & Events')} className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Learn more</button>
                     </div>
                 </div>
             </div>

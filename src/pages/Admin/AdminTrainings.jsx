@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { createFile, deleteFile, getFileByCategory, updateFile } from '../../service/file.service';
 import DynamicForm from '../../components/admin/DynamicForm';
 
-const AdminFormations = () => {
+const AdminTrainings = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [formations, setFormations] = useState([]);
     const [formData, setFormData] = useState({
@@ -78,9 +78,9 @@ const handleDelete = async(id)=>{
     const res  = await deleteFile(id);
     if(res.success){
         setFormations(prev => prev.filter(formation => formation._id !== id));
-        alert('Formation supprimée avec succès');
+        alert('Training successfully deleted');
     }else{
-        console.error('Erreur lors de la suppression de la formation :', res.error);
+        console.error('Error deleting training:', res.error);
     }
 }
 
@@ -94,14 +94,14 @@ const handleDelete = async(id)=>{
                                 <i className="bi bi-gear-fill text-white"></i>
                             </div>
                             <div>
-                                <h1 className="text-2xl font-bold text-shadow">Administration CAMA</h1>
-                                <p className="text-sm opacity-90">Panneau de contrôle</p>
+                                <h1 className="text-2xl font-bold text-shadow">CAMA Administration</h1>
+                                <p className="text-sm opacity-90">Control Panel</p>
                             </div>
                         </div>
                         <div>
                             <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition duration-300">
                                 <i className="bi bi-box-arrow-right mr-2"></i>
-                                Déconnexion
+                                Logout
                             </button>
                         </div>
                     </div>
@@ -119,27 +119,27 @@ const handleDelete = async(id)=>{
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" activeClassName="active bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-md rounded-lg" to="/admin/formations">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" activeClassName="active bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-md rounded-lg" to="/admin/trainings">
                                 <i className="bi bi-book mr-2"></i>
-                                Formations
+                                Trainings
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/evenements">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/events">
                                 <i className="bi bi-calendar-event mr-2"></i>
-                                Événements
+                                Events
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/temoignages">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/testimonials">
                                 <i className="bi bi-chat-quote mr-2"></i>
-                                Témoignages
+                                Testimonials
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/statistiques">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/statistics">
                                 <i className="bi bi-graph-up mr-2"></i>
-                                Statistiques
+                                Statistics
                             </NavLink>
                         </li>
                     </ul>
@@ -151,12 +151,12 @@ const handleDelete = async(id)=>{
                 <div className="container mx-auto">
                     <div className="flex justify-between items-center mb-6">
                         <div>
-                            <h2 className="text-3xl font-bold text-gray-800">Gestion des Formations</h2>
-                            <p className="text-gray-600 mt-1">Créez et gérez les programmes de formation CAMA</p>
+                            <h2 className="text-3xl font-bold text-gray-800">Training Management</h2>
+                            <p className="text-gray-600 mt-1">Create and manage CAMA training programs</p>
                         </div>
                         <button onClick={() => setIsModalOpen(true)} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-5 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-0.5">
                             <i className="bi bi-plus-circle mr-2"></i>
-                            Nouvelle Formation
+                            New Training
                         </button>
                     </div>
 
@@ -165,7 +165,7 @@ const handleDelete = async(id)=>{
                         <div className="p-5 border-b border-gray-200">
                             <h5 className="text-lg font-semibold text-gray-800">
                                 <i className="bi bi-table mr-2"></i>
-                                Liste des Formations
+                                List of Trainings
                             </h5>
                         </div>
                         <div className="p-5">
@@ -173,12 +173,12 @@ const handleDelete = async(id)=>{
                                 <table className="min-w-full bg-white">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Formation</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Catégorie</th>
+                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Training</th>
+                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
                                             <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Time</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Prix</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Inscriptions</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Statut</th>
+                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Registrations</th>
+                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                                             <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                                         </tr>
                                     </thead>
@@ -204,9 +204,9 @@ const handleDelete = async(id)=>{
                                                 <td className="py-4 px-5 text-sm text-gray-600">
                                                     <div>{formation?.eventDetails?.startTime ? formation?.eventDetails?.startTime : ''} - {formation?.eventDetails?.endTime ? formation?.eventDetails?.endTime : ''} </div>
                                                 </td>
-                                                <td className="py-4 px-5 text-sm font-semibold text-gray-800">{formation.price > 0 ? formation.price + ' FCFA' : 'Gratuit'}</td>
+                                                <td className="py-4 px-5 text-sm font-semibold text-gray-800">{formation.price > 0 ? formation.price + ' FCFA' : 'Free'}</td>
                                                 <td className="py-4 px-5">
-                                                    <div className="text-sm text-gray-600"><i className="bi bi-people mr-1"></i> {formation?.eventDetails?.apply ? formation?.eventDetails?.apply : 'Illimité'}</div>
+                                                    <div className="text-sm text-gray-600"><i className="bi bi-people mr-1"></i> {formation?.eventDetails?.apply ? formation?.eventDetails?.apply : 'Unlimited'}</div>
                                                 </td>
                                                 <td className="py-4 px-5">
                                                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold ${formation?.status === 'active' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
@@ -217,7 +217,7 @@ const handleDelete = async(id)=>{
                                                     <div className="flex items-center space-x-2">
                                                         <button
                                                             className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
-                                                            title="Modifier"
+                                                            title="Edit"
                                                             onClick={() => {
                                                                 // populate form with the selected formation's values
                                                                 const fd = {
@@ -243,7 +243,7 @@ const handleDelete = async(id)=>{
                                                         >
                                                             <i className="bi bi-pencil text-lg"></i>
                                                         </button>
-                                                        <button onClick={()=>handleDelete(formation._id)} className="text-red-600 hover:text-red-800 transition-colors duration-200" title="Supprimer">
+                                                        <button onClick={()=>handleDelete(formation._id)} className="text-red-600 hover:text-red-800 transition-colors duration-200" title="Delete">
                                                             <i className="bi bi-trash text-lg"></i>
                                                         </button>
                                                     </div>
@@ -257,9 +257,6 @@ const handleDelete = async(id)=>{
                     </div>
                 </div>
             </main>
-{isModalOpen && ( <div className="fixed inset-0 transition-opacity duration-300 ">
-                            <div className="absolute inset-0 bg-black/50"></div>
-                        </div>)}
             {isModalOpen && (
                 <div className="fixed inset-0 overflow-y-auto">
                     <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -269,32 +266,32 @@ const handleDelete = async(id)=>{
                         {/* Modal content - higher z to avoid being dimmed by backdrop */}
                         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full z-60 isolate">
                             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                <h3 className="text-lg leading-6 font-medium text-gray-900">Nouvelle Formation</h3>
+                                <h3 className="text-lg leading-6 font-medium text-gray-900">New Training</h3>
                                 <div className="mt-2">
                                     <DynamicForm
                                         schema={(function(){
                                             const base = [
-                                                { name: 'title', label: 'Titre', type: 'text', required: true },
+                                                { name: 'title', label: 'Title', type: 'text', required: true },
                                                 { name: 'description', label: 'Description', type: 'textarea', required: true },
-                                                { name: 'categoryEvent', label: 'Catégorie Détail', type: 'select', required: true , options: [
-                                                    { value: 'software', label: 'Développement Logiciel' },
-                                                    { value: 'concours', label: 'Concours' },
+                                                { name: 'categoryEvent', label: 'Category Detail', type: 'select', required: true , options: [
+                                                    { value: 'software', label: 'Software Development' },
+                                                    { value: 'concours', label: 'Competition' },
                                                     { value: 'business', label: 'Business' },
                                                 ] },
-                                                { name: 'status', label: 'Statut', type: 'select', required: true, options: [
-                                                    { value: 'active', label: 'Actif' },
-                                                    { value: 'inactive', label: 'Inactif' },
+                                                { name: 'status', label: 'Status', type: 'select', required: true, options: [
+                                                    { value: 'active', label: 'Active' },
+                                                    { value: 'inactive', label: 'Inactive' },
                                                 ] },
-                                                { name: 'price', label: 'Prix (FCFA)', type: 'number'   },
+                                                { name: 'price', label: 'Price (FCFA)', type: 'number'   },
                                                 { name: 'date', label: 'Date', type: 'date' , required:true },
-                                                { name: 'location', label: 'Lieu', type: 'text'  , required:true},
-                                                { name: 'apply', label: "Inscriptions ", type: 'number' , placeholder:'le nombre maximum d\'inscriptions' , required:true},
-                                                { name: 'startTime', label: "Heure de début", type: 'time' , placeholder: 'e.g., 9:00 AM' , required:true},
-                                                { name: 'endTime', label: "Heure de fin", type: 'time' , placeholder: 'e.g., 5:00 PM' , required:true},
+                                                { name: 'location', label: 'Location', type: 'text'  , required:true},
+                                                { name: 'apply', label: "Registrations ", type: 'number' , placeholder:'the maximum number of registrations' , required:true},
+                                                { name: 'startTime', label: "Start Time", type: 'time' , placeholder: 'e.g., 9:00 AM' , required:true},
+                                                { name: 'endTime', label: "End Time", type: 'time' , placeholder: 'e.g., 5:00 PM' , required:true},
                                             ];
                                             if (!isEditing) {
                                                 // insert file field after price when creating
-                                                const fileField = { name: 'file', label: 'Fichier', type: 'file', placeholder: 'l\'image de presentation della formation', required: true };
+                                                const fileField = { name: 'file', label: 'File', type: 'file', placeholder: 'the training presentation image', required: true };
                                                 const idx = base.findIndex(f => f.name === 'price');
                                                 if (idx >= 0) base.splice(idx+1, 0, fileField);
                                                 else base.push(fileField);
@@ -302,7 +299,7 @@ const handleDelete = async(id)=>{
                                             return base;
                                         })()}
                                         initialValues={formData}
-                                        submitLabel={isEditing ? 'Mettre à jour' : 'Créer'}
+                                        submitLabel={isEditing ? 'Update' : 'Create'}
                                         onSubmit={async (formDataFd) => {
                                             if (isEditing && selectedFormation) {
                                                 // call update API
@@ -334,7 +331,7 @@ const handleDelete = async(id)=>{
                                     {progress > 0 && <div className="w-full bg-gray-200 rounded-full h-2.5 mt-4"><div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${progress}%` }}></div></div>}
                                     <div className="mt-4 text-right">
                                         <button type="button" onClick={() => setIsModalOpen(false)} className="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:text-sm">
-                                            Annuler
+                                            Cancel
                                         </button>
                                     </div>
                                 </div>
@@ -342,9 +339,8 @@ const handleDelete = async(id)=>{
                         </div>
                     </div>
                 </div>
-            )}
-        </div>
+            )}        </div>
     );
 };
 
-export default AdminFormations;
+export default AdminTrainings;

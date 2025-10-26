@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { createFile, getFileByCategory, updateFile } from '../../service/file.service';
 import DynamicForm from '../../components/admin/DynamicForm';
 
-const AdminEvenements = () => {
+const AdminEvents = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [events, setEvents] = useState([]);
     const [formData, setFormData] = useState({
@@ -86,14 +86,14 @@ const AdminEvenements = () => {
                                 <i className="bi bi-gear-fill text-white"></i>
                             </div>
                             <div>
-                                <h1 className="text-2xl font-bold text-shadow">Administration CAMA</h1>
-                                <p className="text-sm opacity-90">Panneau de contrôle</p>
+                                <h1 className="text-2xl font-bold text-shadow">CAMA Administration</h1>
+                                <p className="text-sm opacity-90">Control Panel</p>
                             </div>
                         </div>
                         <div>
                             <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition duration-300">
                                 <i className="bi bi-box-arrow-right mr-2"></i>
-                                Déconnexion
+                                Logout
                             </button>
                         </div>
                     </div>
@@ -111,27 +111,27 @@ const AdminEvenements = () => {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/formations">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/trainings">
                                 <i className="bi bi-book mr-2"></i>
-                                Formations
+                                Trainings
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" activeClassName="active bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-md rounded-lg" to="/admin/evenements">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" activeClassName="active bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-md rounded-lg" to="/admin/events">
                                 <i className="bi bi-calendar-event mr-2"></i>
-                                Événements
+                                Events
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/temoignages">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/testimonials">
                                 <i className="bi bi-chat-quote mr-2"></i>
-                                Témoignages
+                                Testimonials
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/statistiques">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/statistics">
                                 <i className="bi bi-graph-up mr-2"></i>
-                                Statistiques
+                                Statistics
                             </NavLink>
                         </li>
                     </ul>
@@ -143,12 +143,12 @@ const AdminEvenements = () => {
                 <div className="container mx-auto">
                     <div className="flex justify-between items-center mb-6">
                         <div>
-                            <h2 className="text-3xl font-bold text-gray-800">Gestion des Événements</h2>
-                            <p className="text-gray-600 mt-1">Créez et gérez les conférences, workshops et événements CAMA</p>
+                            <h2 className="text-3xl font-bold text-gray-800">Event Management</h2>
+                            <p className="text-gray-600 mt-1">Create and manage CAMA conferences, workshops, and events</p>
                         </div>
                         <button onClick={() => setIsModalOpen(true)} className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-5 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-0.5">
                             <i className="bi bi-plus-circle mr-2"></i>
-                            Nouvel Événement
+                            New Event
                         </button>
                     </div>
 
@@ -157,7 +157,7 @@ const AdminEvenements = () => {
                         <div className="p-5 border-b border-gray-200">
                             <h5 className="text-lg font-semibold text-gray-800">
                                 <i className="bi bi-table mr-2"></i>
-                                Liste des Événements
+                                List of Events
                             </h5>
                         </div>
                         <div className="p-5">
@@ -165,13 +165,13 @@ const AdminEvenements = () => {
                                 <table className="min-w-full bg-white">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Événement</th>
+                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event</th>
                                             <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date & Heure</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Lieu</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Prix</th>
+                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date & Time</th>
+                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
                                             <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Participants</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Statut</th>
+                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                                             <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                                         </tr>
                                     </thead>
@@ -190,9 +190,9 @@ const AdminEvenements = () => {
                                                     <div><i className="bi bi-calendar-date mr-1"></i> {new Date(event.eventDetails.date).toLocaleDateString()}</div>
                                                 </td>
                                                 <td className="py-4 px-5 text-sm text-gray-600"><i className="bi bi-geo-alt mr-1"></i> {event.eventDetails.location}</td>
-                                                <td className="py-4 px-5 text-sm font-semibold text-gray-800">{event?.price>0 ? event.price + ' FCFA' : 'Gratuit'}</td>
+                                                <td className="py-4 px-5 text-sm font-semibold text-gray-800">{event?.price>0 ? event.price + ' FCFA' : 'Free'}</td>
                                                 <td className="py-4 px-5">
-                                                    <div className="text-sm text-gray-600"><i className="bi bi-people mr-1"></i> {event?.eventDetails?.apply === 0 ? 'Illimité' : event.eventDetails?.apply}</div>
+                                                    <div className="text-sm text-gray-600"><i className="bi bi-people mr-1"></i> {event?.eventDetails?.apply === 0 ? 'Unlimited' : event.eventDetails?.apply}</div>
                                                 </td>
                                                 <td className="py-4 px-5">
                                                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold ${event.status === 'active' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
@@ -203,7 +203,7 @@ const AdminEvenements = () => {
                                                     <div className="flex items-center space-x-2">
                                                             <button
                                                                 className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
-                                                                title="Modifier"
+                                                                title="Edit"
                                                                 onClick={() => {
                                                                     // populate event into formData
                                                                     const ev = event;
@@ -229,10 +229,10 @@ const AdminEvenements = () => {
                                                             >
                                                                 <i className="bi bi-pencil text-lg"></i>
                                                             </button>
-                                                        <button className="text-indigo-600 hover:text-indigo-800 transition-colors duration-200" title="Voir détails">
+                                                        <button className="text-indigo-600 hover:text-indigo-800 transition-colors duration-200" title="View details">
                                                             <i className="bi bi-eye text-lg"></i>
                                                         </button>
-                                                        <button className="text-red-600 hover:text-red-800 transition-colors duration-200" title="Supprimer">
+                                                        <button className="text-red-600 hover:text-red-800 transition-colors duration-200" title="Delete">
                                                             <i className="bi bi-trash text-lg"></i>
                                                         </button>
                                                     </div>
@@ -256,39 +256,39 @@ const AdminEvenements = () => {
                         <span className="hidden sm:inline-block sm:align-middle sm:h-screen"></span>&#8203;
                         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                <h3 className="text-lg leading-6 font-medium text-gray-900">Nouvel Événement</h3>
+                                <h3 className="text-lg leading-6 font-medium text-gray-900">New Event</h3>
                                 <div className="mt-2">
                                     <DynamicForm
                                         schema={(function(){
                                             const base = [
-                                                { name: 'title', label: 'Titre', type: 'text', required: true },
+                                                { name: 'title', label: 'Title', type: 'text', required: true },
                                                 { name: 'description', label: 'Description', type: 'textarea', required: true },
-                                                { name: 'price', label: 'Prix (FCFA)', type: 'number' },
-                                                { name: 'location', label: 'Lieu', type: 'text', required: true },
+                                                { name: 'price', label: 'Price (FCFA)', type: 'number' },
+                                                { name: 'location', label: 'Location', type: 'text', required: true },
                                                 { name: 'date', label: 'Date', type: 'date', required: true },
-                                                { name: 'startTime', label: 'Heure de début', type: 'time' },
-                                                { name: 'endTime', label: 'Heure de fin', type: 'time' },
-                                                { name: 'apply', label: 'Nombre de places', type: 'number', required: true },
-                                                { name: 'status', label: 'Statut', type: 'select', options: [
-                                                    { value: '', label: 'Sélectionner un statut' },
-                                                    { value: 'active', label: 'Actif' },
-                                                    { value: 'inactive', label: 'Inactif' },
+                                                { name: 'startTime', label: 'Start Time', type: 'time' },
+                                                { name: 'endTime', label: 'End Time', type: 'time' },
+                                                { name: 'apply', label: 'Number of Seats', type: 'number', required: true },
+                                                { name: 'status', label: 'Status', type: 'select', options: [
+                                                    { value: '', label: 'Select a status' },
+                                                    { value: 'active', label: 'Active' },
+                                                    { value: 'inactive', label: 'Inactive' },
                                                 ]},
-                                                { name: 'categoryEvent', label: "Catégorie de l'événement", type: 'select', options: [
-                                                    { value: '', label: 'Sélectionner une catégorie' },
-                                                    { value: 'software', label: 'Logiciel' },
+                                                { name: 'categoryEvent', label: "Event Category", type: 'select', options: [
+                                                    { value: '', label: 'Select a category' },
+                                                    { value: 'software', label: 'Software' },
                                                     { value: 'business', label: 'Business' },
-                                                    { value: 'concours', label: 'Concours' },
+                                                    { value: 'concours', label: 'Competition' },
                                                 ]}
                                             ];
                                             if (!isEditing) {
-                                                const fileField = { name: 'file', label: 'Fichier', type: 'file' };
+                                                const fileField = { name: 'file', label: 'File', type: 'file' };
                                                 base.splice(3, 0, fileField); // insert after price
                                             }
                                             return base;
                                         })()}
                                         initialValues={formData}
-                                        submitLabel={isEditing ? 'Mettre à jour' : 'Créer'}
+                                        submitLabel={isEditing ? 'Update' : 'Create'}
                                         onSubmit={async (formDataFd) => {
                                             if (isEditing && selectedEvent) {
                                                 const result = await updateFile(selectedEvent._id, formDataFd);
@@ -318,7 +318,7 @@ const AdminEvenements = () => {
                                     {progress > 0 && <div className="w-full bg-gray-200 rounded-full h-2.5"><div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${progress}%` }}></div></div>}
                                     <div className="mt-4 text-right">
                                         <button type="button" onClick={() => setIsModalOpen(false)} className="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:text-sm">
-                                            Annuler
+                                            Cancel
                                         </button>
                                     </div>
                                 </div>
@@ -331,4 +331,4 @@ const AdminEvenements = () => {
     );
 };
 
-export default AdminEvenements;
+export default AdminEvents;

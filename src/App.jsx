@@ -2,17 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Activites from './pages/Activites';
-import Programmes from './pages/Programmes';
-import Galerie from './pages/Galerie';
-import Blog from './pages/Blog';
-import BlogDetail from './pages/BlogDetail';
+import Activities from './pages/Activities';
+import Programs from './pages/Programs';
+import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import AdminDashboard from './pages/Admin/AdminDashboard';
-import AdminFormations from './pages/Admin/AdminFormations';
-import AdminEvenements from './pages/Admin/AdminEvenements';
-import AdminStatistiques from './pages/Admin/AdminStatistiques';
-import AdminTemoignages from './pages/Admin/AdminTemoignages';
+import AdminTrainings from './pages/Admin/AdminTrainings';
+import AdminEvents from './pages/Admin/AdminEvents';
+import AdminStatistics from './pages/Admin/AdminStatistics';
+import AdminTestimonials from './pages/Admin/AdminTestimonials';
 import PrivateRoute from './components/Auth/PrivateRoute';
 import SignIn from './pages/Auth/SignIn';
 import SignUp from './pages/Auth/SignUp';
@@ -30,9 +28,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/activities" element={<Activites />} />
-        <Route path="/programmes" element={<Programmes />} />
-        <Route path="/gallery" element={<Galerie />} />
+        <Route path="/activities" element={<Activities />} />
+        <Route path="/programs" element={<Programs />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
@@ -42,10 +40,10 @@ function App() {
         {/* Admin Routes */}
         <Route element={<PrivateRoute allowedRoles={['admin']} />}>
         <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/admin/formations" element={<AdminFormations />} />
-        <Route path="/admin/evenements" element={<AdminEvenements />} />
-        <Route path="/admin/statistiques" element={<AdminStatistiques />} />
-        <Route path="/admin/temoignages" element={<AdminTemoignages />} />
+        <Route path="/admin/trainings" element={<AdminTrainings />} />
+        <Route path="/admin/events" element={<AdminEvents />} />
+        <Route path="/admin/statistics" element={<AdminStatistics />} />
+        <Route path="/admin/testimonials" element={<AdminTestimonials />} />
         </Route>
       </Routes>
     </Router>

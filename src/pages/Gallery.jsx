@@ -6,7 +6,7 @@ import GalleryHero from '../components/gallery/GalleryHero';
 import GalleryContent from '../components/gallery/GalleryContent';
 import GalleryDescription from '../components/gallery/GalleryDescription';
 
-const Galerie = () => {
+const Gallery = () => {
     return (
         <div>
             <Header />
@@ -18,4 +18,4 @@ const Galerie = () => {
     );
 };
 
-export default Galerie;
+export default Gallery;

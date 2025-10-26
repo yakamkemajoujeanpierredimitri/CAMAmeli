@@ -17,10 +17,10 @@ const Contact = () => {
                             <div className="inline-block bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
                                 <span>Contact</span>
                             </div>
-                            <h2 className="text-4xl font-bold mb-4 text-gray-800">Nous sommes là pour vous accompagner</h2>
+                            <h2 className="text-4xl font-bold mb-4 text-gray-800">We are here to support you</h2>
                             <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                                Une question sur nos formations ? Besoin de conseils ? N'hésitez pas à nous contacter.
-                                Notre équipe se fera un plaisir de vous répondre.
+                                Have a question about our courses? Need some advice? Don't hesitate to contact us.
+                                Our team will be happy to help you.
                             </p>
                         </header>
 

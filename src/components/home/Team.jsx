@@ -6,9 +6,9 @@ const Team = () => {
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-4">
-                    <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold">Notre Équipe</span>
+                    <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold">Our Team</span>
                 </div>
-                <h2 className="text-center text-4xl font-bold mb-12 text-gray-800">Nos Experts</h2>
+                <h2 className="text-center text-4xl font-bold mb-12 text-gray-800">Our Experts</h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
                     <div className="text-center p-8 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-1">
@@ -17,8 +17,8 @@ const Team = () => {
                         </div>
                         <div className="member-info">
                             <h4 className="text-xl font-bold mb-2 text-gray-800">Dr. Marie Kouame</h4>
-                            <p className="text-blue-500 font-semibold mb-2">Directrice Académique</p>
-                            <p className="text-gray-600 text-sm">Ingénierie & Formation</p>
+                            <p className="text-blue-500 font-semibold mb-2">Academic Director</p>
+                            <p className="text-gray-600 text-sm">Engineering & Training</p>
                         </div>
                     </div>
                     
@@ -27,8 +27,8 @@ const Team = () => {
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ing. Jean Baptiste" className="w-full h-full object-cover" />
                         </div>
                         <div className="member-info">
-                            <h4 className="text-xl font-bold mb-2 text-gray-800">Ing. Jean Baptiste</h4>
-                            <p className="text-blue-500 font-semibold mb-2">Responsable Formations</p>
+                            <h4 className="text-xl font-bold mb-2 text-gray-800">Eng. Jean Baptiste</h4>
+                            <p className="text-blue-500 font-semibold mb-2">Training Manager</p>
                             <p className="text-gray-600 text-sm">AutoCAD & Revit</p>
                         </div>
                     </div>
@@ -39,8 +39,8 @@ const Team = () => {
                         </div>
                         <div className="member-info">
                             <h4 className="text-xl font-bold mb-2 text-gray-800">Prof. Aisha Traoré</h4>
-                            <p className="text-blue-500 font-semibold mb-2">Coordinatrice Pédagogique</p>
-                            <p className="text-gray-600 text-sm">Préparation Concours</p>
+                            <p className="text-blue-500 font-semibold mb-2">Pedagogical Coordinator</p>
+                            <p className="text-gray-600 text-sm">Competition Preparation</p>
                         </div>
                     </div>
                 </div>

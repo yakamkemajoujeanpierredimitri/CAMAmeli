@@ -42,9 +42,9 @@ const [isAdmin ,setIsAdmin] = useState(false);
 
                 {/* Admin toggle */}
                 <div className="flex items-center justify-center mb-6">
-                    <div className="mr-4 text-sm text-gray-700 font-medium">Se connecter en tant que</div>
+                    <div className="mr-4 text-sm text-gray-700 font-medium">Log in as</div>
                     <div className="flex items-center space-x-3">
-                        <div className="text-xs text-gray-500">Utilisateur</div>
+                        <div className="text-xs text-gray-500">User</div>
                         <button
                             type="button"
                             aria-pressed={isAdmin}

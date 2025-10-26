@@ -21,16 +21,16 @@ const Sessions = () => {
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto mb-16">
                     <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-5">
-                        <span>Programmes & Sessions</span>
+                        <span>Programs & Sessions</span>
                     </div>
-                    <h2 className="text-4xl font-bold mb-4 text-gray-800">Nos prochaines sessions de formation</h2>
+                    <h2 className="text-4xl font-bold mb-4 text-gray-800">Our upcoming training sessions</h2>
                     <p className="text-gray-600 leading-relaxed">
-                        Consultez notre calendrier et inscrivez-vous dès maintenant aux programmes qui vous intéressent.
+                        Check our calendar and register now for the programs that interest you.
                     </p>
                 </div>
         
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-                    {formations.length > 0 ? formations.map((session) => <Card key={session._id} post={session} />) : (<div>Aucune session disponible pour le moment.</div>)}
+                    {formations.length > 0 ? formations.map((session) => <Card key={session._id} post={session} />) : (<div>No sessions available at the moment.</div>)}
                   
                 </div>
             </div>

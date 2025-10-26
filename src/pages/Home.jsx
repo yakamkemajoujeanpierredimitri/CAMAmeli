@@ -10,7 +10,7 @@ import Events from '../components/home/Events';
 import Testimonials from '../components/home/Testimonials';
 import Objectives from '../components/home/Objectives';
 import Team from '../components/home/Team';
-import Localisation from '../components/home/Localisation';
+import Location from '../components/home/Location';
 
 
 const Home = () => {
@@ -26,7 +26,7 @@ const Home = () => {
             <Testimonials />
             <Objectives />
             <Team />
-            <Localisation />
+            <Location />
            
             <Footer />
         </div>

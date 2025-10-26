@@ -44,13 +44,13 @@ const GalleryContent = () => {
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl text-center mb-12 text-gray-800 relative">Moments Inoubliables<div className="absolute bottom-[-15px] left-1/2 -translate-x-1/2 w-20 h-1 bg-blue-500 rounded-full"></div></h2>
+                <h2 className="text-4xl text-center mb-12 text-gray-800 relative">Unforgettable Moments<div className="absolute bottom-[-15px] left-1/2 -translate-x-1/2 w-20 h-1 bg-blue-500 rounded-full"></div></h2>
                 
                 <div className="flex justify-center gap-4 mb-10 flex-wrap">
-                    <button className={`py-2 px-5 bg-gray-50 border-none rounded-full cursor-pointer font-medium transition-all duration-300 ${filter === 'all' ? 'bg-blue-500 text-white' : 'hover:bg-blue-500 hover:text-white'}`} onClick={() => setFilter('all')}>Tout</button>
-                    <button className={`py-2 px-5 bg-gray-50 border-none rounded-full cursor-pointer font-medium transition-all duration-300 ${filter === 'formation' ? 'bg-blue-500 text-white' : 'hover:bg-blue-500 hover:text-white'}`} onClick={() => setFilter('formation')}>Formations</button>
-                    <button className={`py-2 px-5 bg-gray-50 border-none rounded-full cursor-pointer font-medium transition-all duration-300 ${filter === 'event' ? 'bg-blue-500 text-white' : 'hover:bg-blue-500 hover:text-white'}`} onClick={() => setFilter('event')}>Événements</button>
-                    <button className={`py-2 px-5 bg-gray-50 border-none rounded-full cursor-pointer font-medium transition-all duration-300 ${filter === 'temoignage' ? 'bg-blue-500 text-white' : 'hover:bg-blue-500 hover:text-white'}`} onClick={() => setFilter('temoignage')}>Témoignages</button>
+                    <button className={`py-2 px-5 bg-gray-50 border-none rounded-full cursor-pointer font-medium transition-all duration-300 ${filter === 'all' ? 'bg-blue-500 text-white' : 'hover:bg-blue-500 hover:text-white'}`} onClick={() => setFilter('all')}>All</button>
+                    <button className={`py-2 px-5 bg-gray-50 border-none rounded-full cursor-pointer font-medium transition-all duration-300 ${filter === 'formation' ? 'bg-blue-500 text-white' : 'hover:bg-blue-500 hover:text-white'}`} onClick={() => setFilter('formation')}>Trainings</button>
+                    <button className={`py-2 px-5 bg-gray-50 border-none rounded-full cursor-pointer font-medium transition-all duration-300 ${filter === 'event' ? 'bg-blue-500 text-white' : 'hover:bg-blue-500 hover:text-white'}`} onClick={() => setFilter('event')}>Events</button>
+                    <button className={`py-2 px-5 bg-gray-50 border-none rounded-full cursor-pointer font-medium transition-all duration-300 ${filter === 'temoignage' ? 'bg-blue-500 text-white' : 'hover:bg-blue-500 hover:text-white'}`} onClick={() => setFilter('temoignage')}>Testimonials</button>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -87,7 +87,7 @@ const GalleryContent = () => {
                         {modalImage.format === 'video' ? (
                             <video src={modalImage.src} controls autoPlay className="max-w-full max-h-[80vh] block" />
                         ) : (
-                            <img src={modalImage.src} alt="Image agrandie" className="max-w-full max-h-[80vh] block" />
+                            <img src={modalImage.src} alt="Enlarged image" className="max-w-full max-h-[80vh] block" />
                         )}
                     </div>
                 </div>

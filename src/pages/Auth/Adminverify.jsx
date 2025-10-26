@@ -44,7 +44,7 @@ const AdminVerify = () => {
                     &times;
                 </button>
                 <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-2">Welcome Back!</h2>
-                <p className="text-center text-gray-600 mb-8">Sign in to continue to your account you receive the code in the email.</p>
+                <p className="text-center text-gray-600 mb-8">Sign in to continue to your account. You will receive the code in your email.</p>
                 {error && <p className="text-red-600 bg-red-100 border border-red-200 p-3 rounded-md text-center mb-4">{error}</p>}
                 <DynamicForm
                     schema={signInFields}

@@ -13,9 +13,9 @@ const Footer = () => {
                     <div className="footer-section">
                         <h3 className="text-2xl font-bold mb-4 text-white">CAMA</h3>
                         <p className="text-gray-400 leading-relaxed mb-6">
-                            Centre Académique de Formation dédié à l'excellence et à l'innovation. 
-                            Nous formons les professionnels de demain avec des programmes adaptés 
-                            aux besoins du marché.
+                            Academic Training Center dedicated to excellence and innovation. 
+                            We train the professionals of tomorrow with programs adapted 
+                            to market needs.
                         </p>
                         <div className="flex gap-4">
                             <a href="#" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white transition-colors duration-300 hover:bg-blue-500"><FontAwesomeIcon icon={faFacebookF} /></a>
@@ -26,24 +26,24 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="footer-section">
-                        <h4 className="text-xl font-semibold mb-4 text-blue-500 flex items-center gap-2"><FontAwesomeIcon icon={faLink} className="text-base" /> Liens rapides</h4>
+                        <h4 className="text-xl font-semibold mb-4 text-blue-500 flex items-center gap-2"><FontAwesomeIcon icon={faLink} className="text-base" /> Quick links</h4>
                         <ul>
-                            <li className="mb-2"><Link to="/" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Accueil</Link></li>
-                            <li className="mb-2"><Link to="/about" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">À propos</Link></li>
-                            <li className="mb-2"><Link to="/activities" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Nos activités</Link></li>
-                            <li className="mb-2"><Link to="/programmes" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Programmes</Link></li>
+                            <li className="mb-2"><Link to="/" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Home</Link></li>
+                            <li className="mb-2"><Link to="/about" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">About</Link></li>
+                            <li className="mb-2"><Link to="/activities" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Our activities</Link></li>
+                            <li className="mb-2"><Link to="/programmes" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Programs</Link></li>
                             <li className="mb-2"><Link to="/contact" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Contact</Link></li>
                         </ul>
                     </div>
                     
                     <div className="footer-section">
-                        <h4 className="text-xl font-semibold mb-4 text-blue-500 flex items-center gap-2"><FontAwesomeIcon icon={faGraduationCap} className="text-base" /> Nos formations</h4>
+                        <h4 className="text-xl font-semibold mb-4 text-blue-500 flex items-center gap-2"><FontAwesomeIcon icon={faGraduationCap} className="text-base" /> Our training courses</h4>
                         <ul>
                             <li className="mb-2"><a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">AutoCAD</a></li>
                             <li className="mb-2"><a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Revit</a></li>
                             <li className="mb-2"><a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Archicad</a></li>
                             <li className="mb-2"><a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">SketchUp</a></li>
-                            <li className="mb-2"><a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Préparation concours</a></li>
+                            <li className="mb-2"><a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Competition preparation</a></li>
                         </ul>
                     </div>
                     
@@ -57,11 +57,11 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="flex justify-between items-center pt-8 border-t border-gray-700 flex-col md:flex-row gap-4 text-center">
-                    <p>&copy; 2024 CAMA - Centre Académique de Formation. Tous droits réservés.</p>
+                    <p>&copy; 2024 CAMA - Academic Training Center. All rights reserved.</p>
                     <div className="flex gap-8">
-                        <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Politique de confidentialité</a>
-                        <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Conditions d'utilisation</a>
-                        <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Mentions légales</a>
+                        <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Terms of Use</a>
+                        <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">Legal Notice</a>
                     </div>
                 </div>
             </div>

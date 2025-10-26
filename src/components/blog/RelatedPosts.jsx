@@ -5,27 +5,27 @@ import { NavLink } from 'react-router-dom';
 const RelatedPosts = () => {
     const posts = [
         {
-            category: "Concours",
-            title: "Stratégies de Réussite aux Concours",
-            date: "28 Mai 2024",
+            category: "Competitions",
+            title: "Success Strategies for Competitions",
+            date: "May 28, 2024",
             author: "Admin",
-            excerpt: "Des conseils pratiques et des méthodes éprouvées pour vous préparer efficacement aux concours d'entrée...",
+            excerpt: "Practical tips and proven methods to effectively prepare for entrance exams...",
             image: "https://images.unsplash.com/photo-1536104968055-4d61aa56f46a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
         },
         {
-            category: "Témoignages",
-            title: "Parcours d'Excellence : Témoignage d'une Ancienne Étudiante",
-            date: "10 Mai 2024",
+            category: "Testimonials",
+            title: "Path of Excellence: Testimony of a Former Student",
+            date: "May 10, 2024",
             author: "Admin",
-            excerpt: "Découvrez le parcours inspirant de Marie K., qui a intégré une grande école après avoir suivi notre programme...",
+            excerpt: "Discover the inspiring journey of Marie K., who entered a top school after completing our program...",
             image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
         },
         {
-            category: "Technologie",
-            title: "Le BIM et l'avenir de l'Architecture",
-            date: "30 Avril 2024",
+            category: "Technology",
+            title: "BIM and the Future of Architecture",
+            date: "April 30, 2024",
             author: "Admin",
-            excerpt: "Exploration de l'impact du Building Information Modeling (BIM) sur la conception architecturale...",
+            excerpt: "Exploring the impact of Building Information Modeling (BIM) on architectural design...",
             image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
         }
     ];
@@ -33,7 +33,7 @@ const RelatedPosts = () => {
     return (
         <section className="my-20">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl text-center mb-12 text-gray-800 relative">Articles similaires<div className="absolute bottom-[-15px] left-1/2 -translate-x-1/2 w-20 h-1 bg-blue-500 rounded-full"></div></h2>
+                <h2 className="text-3xl text-center mb-12 text-gray-800 relative">Related Articles<div className="absolute bottom-[-15px] left-1/2 -translate-x-1/2 w-20 h-1 bg-blue-500 rounded-full"></div></h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {posts.map((post, index) => (
@@ -49,7 +49,7 @@ const RelatedPosts = () => {
                                     <span><i className="far fa-user"></i> {post.author}</span>
                                 </div>
                                 <p className="text-gray-600 leading-relaxed mb-5">{post.excerpt}</p>
-                                <NavLink to={`/programmes/${post.category.toLowerCase()}`} className="inline-block py-2 px-5 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Lire l'article</NavLink>
+                                <NavLink to={`/programmes/${post.category.toLowerCase()}`} className="inline-block py-2 px-5 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Read article</NavLink>
                             </div>
                         </div>
                     ))}

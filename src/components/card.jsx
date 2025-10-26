@@ -11,7 +11,7 @@ const Card = ({post})=>{
                                     </div>
                                     <div className={`flex items-center gap-1.5 text-xs font-semibold py-1 px-3 rounded-full ${post?.eventDetails?.apply && post?.status === "active" ? "bg-yellow-100 text-yellow-800" : post?.eventDetails?.apply && post?.status === "inactive" ? "bg-red-100 text-red-800" : "bg-green-100 text-green-800"}`}>
                                         <FontAwesomeIcon icon={ (post.eventDetails?.apply && post?.status === "active") ? faExclamationCircle : (post.eventDetails?.apply && post?.status === "inactive") ? faTimesCircle : faCheckCircle} />
-                                        <span>{ (post.eventDetails?.apply && post?.status === "active") ? "Postuler" : (post.eventDetails?.apply && post?.status === "inactive") ? "Inactif" : "Actif"}</span>
+                                        <span>{ (post.eventDetails?.apply && post?.status === "active") ? "Apply" : (post.eventDetails?.apply && post?.status === "inactive") ? "Inactive" : "Active"}</span>
                                     </div>
                                 </div>
                                 <div className="p-8 text-left">
@@ -20,17 +20,17 @@ const Card = ({post})=>{
                                         {post.description}
                                     </p>
                                     <div className="grid grid-cols-2 gap-3 mb-6 text-sm text-gray-700">
-                                        <div className="flex items-center gap-2"><FontAwesomeIcon icon={faCalendar} /><span>{post?.eventDetails?.date ? new Date(post?.eventDetails?.date).toLocaleDateString() : "Date et heure non spécifiées"}</span></div>
+                                        <div className="flex items-center gap-2"><FontAwesomeIcon icon={faCalendar} /><span>{post?.eventDetails?.date ? new Date(post?.eventDetails?.date).toLocaleDateString() : "Date and time not specified"}</span></div>
                                         <div className="flex items-center gap-2"><FontAwesomeIcon icon={faMapMarkerAlt} /><span>{post?.eventDetails?.location}</span></div>
-                                        <div className="flex items-center gap-2"><FontAwesomeIcon icon={faUsers} /><span>{post.eventDetails?.apply ? ` ${post.eventDetails?.apply} place manquante` : "ouvert a tous"}</span></div>
-                                        <div className="flex items-center gap-2"><FontAwesomeIcon icon={faClock} /><span>{post.eventDetails?.startTime ? `${post?.eventDetails?.startTime} - ${post?.eventDetails?.endTime}` : "Heure de début et de fin non spécifiées"}</span></div>
+                                        <div className="flex items-center gap-2"><FontAwesomeIcon icon={faUsers} /><span>{post.eventDetails?.apply ? ` ${post.eventDetails?.apply} spot remaining` : "open to all"}</span></div>
+                                        <div className="flex items-center gap-2"><FontAwesomeIcon icon={faClock} /><span>{post.eventDetails?.startTime ? `${post?.eventDetails?.startTime} - ${post?.eventDetails?.endTime}` : "Start and end time not specified"}</span></div>
                                     </div>
                                 </div>
                                 <div className="flex justify-between items-center p-6 bg-gray-50 border-t border-gray-200">
                                     <div className="text-left">
-                                        <span className="block text-xl font-bold text-blue-500 mb-1">{post?.eventDetails?.price ? `${post?.eventDetails?.price} FCFA` : "Gratuit"}</span>
+                                        <span className="block text-xl font-bold text-blue-500 mb-1">{post?.eventDetails?.price ? `${post?.eventDetails?.price} FCFA` : "Free"}</span>
                                     </div>
-                                    <a href="#" className="py-3 px-6 rounded-md no-underline font-semibold transition-all duration-300 ease-in-out bg-blue-500 text-white hover:bg-blue-700">S'inscrire maintenant</a>
+                                    <a href="#" className="py-3 px-6 rounded-md no-underline font-semibold transition-all duration-300 ease-in-out bg-blue-500 text-white hover:bg-blue-700">Register now</a>
                                 </div>
                             </div>)
                 

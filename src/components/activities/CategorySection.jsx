@@ -19,15 +19,15 @@ const CategorySection = ({Accurment , reverse = false}) => {
                                 <div className="flex justify-between items-center py-4 border-b border-gray-200" >
                                     <div className="program-info">
                                         <h4 className="text-xl mb-2 text-gray-800">{ new Date(Accurment.eventDetails?.date).toLocaleDateString()}</h4>
-                                        <p className="text-gray-600 text-sm">Durée: {Accurment.eventDetails?.startTime} - {Accurment.eventDetails?.endTime}</p>
+                                        <p className="text-gray-600 text-sm">Duration: {Accurment.eventDetails?.startTime} - {Accurment.eventDetails?.endTime}</p>
                                     </div>
                                  
                                 </div>
                             
                         </div>
                         <div className="flex gap-4 mt-5">
-                            <NavLink to="/programmes" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Voir les programmes</NavLink>
-                            <NavLink to="/contact" className="inline-block py-3 px-6 bg-gray-600 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-gray-700">Demander des infos</NavLink>
+                            <NavLink to="/programmes" className="inline-block py-3 px-6 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">See programs</NavLink>
+                            <NavLink to="/contact" className="inline-block py-3 px-6 bg-gray-600 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-gray-700">Request info</NavLink>
                         </div>
                     </div>
                     <div className={`category-image ${reverse ? 'order-1' : ''}`}>

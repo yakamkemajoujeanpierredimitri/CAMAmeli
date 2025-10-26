@@ -34,7 +34,7 @@ const BlogGrid = () => {
                                     <span><i className="far fa-user"></i> {"Admin"}</span>
                                 </div>
                                 <p className="text-gray-600 leading-relaxed mb-5">{post.description}</p>
-                                <NavLink to={`/blog/${post._id}`} className="inline-block py-2 px-5 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Lire l'article</NavLink>
+                                <NavLink to={`/blog/${post._id}`} className="inline-block py-2 px-5 bg-blue-500 text-white no-underline rounded-md font-semibold transition-colors duration-300 hover:bg-blue-700">Read the article</NavLink>
                             </div>
                         </div>
                     ))}

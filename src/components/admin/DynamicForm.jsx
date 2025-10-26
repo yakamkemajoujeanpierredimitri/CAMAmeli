@@ -96,7 +96,7 @@ const DynamicForm = ({ schema = [], initialValues = {}, onSubmit, submitLabel = 
                 onChange={handleChange}
                 className="shadow-sm block w-full sm:text-sm border rounded-md p-2"
               >
-                <option value="">-- Sélectionner --</option>
+                <option value="">-- Select --</option>
                 {(field.options || []).map(opt => (
                   <option key={opt.value ?? opt} value={opt.value ?? opt}>{opt.label ?? opt}</option>
                 ))}

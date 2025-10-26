@@ -7,7 +7,7 @@ import ActivitiesContent from '../components/activities/ActivitiesContent';
 import CategorySection from '../components/activities/CategorySection';
 import { useState } from 'react';
 import { getFileByCategory } from '../service/file.service';
-const Activites = () => {
+const Activities = () => {
     const [formations ,setFormations] = useState([]);
     const [concours ,setConcours] = useState([]);
     const [conferences ,setConferences] = useState([]);
@@ -44,4 +44,4 @@ const Activites = () => {
     );
 };
 
-export default Activites;
+export default Activities;

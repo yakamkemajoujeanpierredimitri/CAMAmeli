@@ -81,14 +81,14 @@ const logout = async ()=>{
                                 <i className="bi bi-gear-fill text-white"></i>
                             </div>
                             <div>
-                                <h1 className="text-2xl font-bold text-shadow">Administration CAMA</h1>
-                                <p className="text-sm opacity-90">Panneau de contrôle</p>
+                                <h1 className="text-2xl font-bold text-shadow">CAMA Administration</h1>
+                                <p className="text-sm opacity-90">Control Panel</p>
                             </div>
                         </div>
                         <div>
                             <button onClick={() => logout()} className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition duration-300">
                                 <i className="bi bi-box-arrow-right mr-2"></i>
-                                Déconnexion
+                                Logout
                             </button>
                         </div>
                     </div>
@@ -106,27 +106,27 @@ const logout = async ()=>{
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/formations">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/trainings">
                                 <i className="bi bi-book mr-2"></i>
-                                Formations
+                                Trainings
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/evenements">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/events">
                                 <i className="bi bi-calendar-event mr-2"></i>
-                                Événements
+                                Events
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/temoignages">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/testimonials">
                                 <i className="bi bi-chat-quote mr-2"></i>
-                                Témoignages
+                                Testimonials
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/statistiques">
+                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/statistics">
                                 <i className="bi bi-graph-up mr-2"></i>
-                                Statistiques
+                                Statistics
                             </NavLink>
                         </li>
                     </ul>
@@ -143,11 +143,11 @@ const logout = async ()=>{
                             <div className="p-6">
                                 <div className="flex justify-between items-start">
                                     <div>
-                                        <h6 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Formations</h6>
+                                        <h6 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Trainings</h6>
                                         <h2 className="text-4xl font-extrabold text-gray-800">{formationsCount}</h2>
                                         <p className="text-sm font-medium text-gray-600 mt-2">
                                             <i className="bi bi-book text-blue-500 mr-1"></i>
-                                            {activeFormationsCount} actives
+                                            {activeFormationsCount} active
                                         </p>
                                     </div>
                                     <div className="text-5xl text-blue-100">
@@ -162,11 +162,11 @@ const logout = async ()=>{
                             <div className="p-6">
                                 <div className="flex justify-between items-start">
                                     <div>
-                                        <h6 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Étudiants inscrits</h6>
+                                        <h6 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Registered Students</h6>
                                         <h2 className="text-4xl font-extrabold text-gray-800">{studentsCount}</h2>
                                         <p className="text-sm font-medium text-gray-600 mt-2">
                                             <i className="bi bi-arrow-up text-green-500 mr-1"></i>
-                                            total des inscriptions
+                                            total registrations
                                         </p>
                                     </div>
                                     <div className="text-5xl text-green-100">
@@ -181,10 +181,10 @@ const logout = async ()=>{
                             <div className="p-6">
                                 <div className="flex justify-between items-start">
                                     <div>
-                                        <h6 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Événements à venir</h6>
+                                        <h6 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Upcoming Events</h6>
                                         <h2 className="text-4xl font-extrabold text-gray-800">{eventsCount}</h2>
                                         <p className="text-sm font-medium text-yellow-600 mt-2">
-                                            {preparationCount} en préparation
+                                            {preparationCount} in preparation
                                         </p>
                                     </div>
                                     <div className="text-5xl text-yellow-100">
@@ -199,11 +199,11 @@ const logout = async ()=>{
                             <div className="p-6">
                                 <div className="flex justify-between items-start">
                                     <div>
-                                        <h6 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Témoignages</h6>
+                                        <h6 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Testimonials</h6>
                                         <h2 className="text-4xl font-extrabold text-gray-800">{testimonialsCount}</h2>
                                         <p className="text-sm font-medium text-gray-600 mt-2">
                                             <i className="bi bi-clock text-yellow-500 mr-1"></i>
-                                            {testimonialsPending} en attente
+                                            {testimonialsPending} pending
                                         </p>
                                     </div>
                                     <div className="text-5xl text-indigo-100">
