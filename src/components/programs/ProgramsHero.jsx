@@ -3,10 +3,10 @@ import React from 'react';
 
 const ProgramsHero = () => {
     return (
-        <section className="bg-gradient-to-br from-blue-500 to-blue-700 text-white py-24 text-center mt-12">
+        <section className="bg-gradient-to-br from-blue-500 to-blue-700 text-white py-16 sm:py-24 text-center mt-8 sm:mt-12">
             <div className="container mx-auto px-4">
-                <h1 className="text-5xl font-bold mb-5">Our Programs</h1>
-                <p className="text-xl max-w-3xl mx-auto mb-8 opacity-90">Discover our wide range of training programs designed to help you achieve your professional goals.</p>
+                <h1 className="text-3xl sm:text-5xl font-bold mb-5">Our Programs</h1>
+                <p className="text-base sm:text-xl max-w-3xl mx-auto mb-8 opacity-90">Discover our wide range of training programs designed to help you achieve your professional goals.</p>
             </div>
         </section>
     );

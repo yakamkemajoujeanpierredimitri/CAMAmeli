@@ -5,8 +5,7 @@ import { getAllFiles } from '../../service/file.service';
 
 const BlogGrid = () => {
     const [posts , setPosts] = useState([]);
-    useEffect(()=>{
-        fetchposts();
+    useEffect(()=>{n        fetchposts();
     },[]);
     const fetchposts = async ()=>{
         const res = await getAllFiles();
@@ -16,17 +15,17 @@ const BlogGrid = () => {
     }
 
     return (
-        <section className="py-20 bg-white">
+        <section className="py-12 sm:py-20 bg-white">
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-16">
                     {posts.map((post, index) => (
                         <div className="bg-gray-50 rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out border border-gray-200 hover:-translate-y-2 hover:shadow-xl" key={index}>
-                            <div className="h-52 overflow-hidden">
+                            <div className="h-40 sm:h-52 overflow-hidden">
                              {post.format === 'image' && <img src={post.fileurl} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-110" />}
                             </div>
-                            <div className="p-6">
+                            <div className="p-4 sm:p-6">
                                 <span className="inline-block py-1 px-4 bg-blue-500 text-white rounded-full text-xs mb-4">{post.category}</span>
-                                <h3 className="text-xl font-bold mb-2.5 text-gray-800">{post.title}</h3>
+                                <h3 className="text-lg sm:text-xl font-bold mb-2.5 text-gray-800">{post.title}</h3>
                                 <div className="flex gap-5 mb-4 text-gray-600 text-sm">
                                     <span><i className="far fa-calendar"></i> {new Date(
                                         post.eventDetails?.date

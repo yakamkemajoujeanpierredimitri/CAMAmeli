@@ -86,22 +86,22 @@ const handleDelete = async(id)=>{
 
     return (
         <div className="min-h-screen flex flex-col bg-gray-100">
-            <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 shadow-md relative overflow-hidden">
+            <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 sm:p-6 shadow-md relative overflow-hidden">
                 <div className="container mx-auto">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center">
-                            <div className="text-4xl animate-spin-slow mr-3">
+                            <div className="text-3xl sm:text-4xl animate-spin-slow mr-3">
                                 <i className="bi bi-gear-fill text-white"></i>
                             </div>
                             <div>
-                                <h1 className="text-2xl font-bold text-shadow">CAMA Administration</h1>
+                                <h1 className="text-xl sm:text-2xl font-bold text-shadow">CAMA Administration</h1>
                                 <p className="text-sm opacity-90">Control Panel</p>
                             </div>
                         </div>
                         <div>
                             <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition duration-300">
-                                <i className="bi bi-box-arrow-right mr-2"></i>
-                                Logout
+                                <i className="bi bi-box-arrow-right sm:mr-2"></i>
+                                <span className="hidden sm:inline">Logout</span>
                             </button>
                         </div>
                     </div>
@@ -109,37 +109,37 @@ const handleDelete = async(id)=>{
             </header>
 
             {/* Navigation */}
-            <nav className="bg-white shadow-sm sticky top-0 ">
+            <nav className="bg-white shadow-sm sticky top-0 z-40">
                 <div className="container mx-auto">
-                    <ul className="flex justify-center p-2">
+                    <ul className="flex flex-wrap justify-center p-2">
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin">
-                                <i className="bi bi-speedometer2 mr-2"></i>
-                                Dashboard
+                            <NavLink className="nav-link px-3 py-2 sm:px-6 sm:py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300 flex items-center" to="/admin">
+                                <i className="bi bi-speedometer2 sm:mr-2"></i>
+                                <span className="hidden sm:inline">Dashboard</span>
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" activeClassName="active bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-md rounded-lg" to="/admin/trainings">
-                                <i className="bi bi-book mr-2"></i>
-                                Trainings
+                            <NavLink className="nav-link px-3 py-2 sm:px-6 sm:py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300 flex items-center" activeClassName="active bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-md rounded-lg" to="/admin/trainings">
+                                <i className="bi bi-book sm:mr-2"></i>
+                                <span className="hidden sm:inline">Trainings</span>
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/events">
-                                <i className="bi bi-calendar-event mr-2"></i>
-                                Events
+                            <NavLink className="nav-link px-3 py-2 sm:px-6 sm:py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300 flex items-center" to="/admin/events">
+                                <i className="bi bi-calendar-event sm:mr-2"></i>
+                                <span className="hidden sm:inline">Events</span>
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/testimonials">
-                                <i className="bi bi-chat-quote mr-2"></i>
-                                Testimonials
+                            <NavLink className="nav-link px-3 py-2 sm:px-6 sm:py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300 flex items-center" to="/admin/testimonials">
+                                <i className="bi bi-chat-quote sm:mr-2"></i>
+                                <span className="hidden sm:inline">Testimonials</span>
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link px-6 py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300" to="/admin/statistics">
-                                <i className="bi bi-graph-up mr-2"></i>
-                                Statistics
+                            <NavLink className="nav-link px-3 py-2 sm:px-6 sm:py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300 flex items-center" to="/admin/statistics">
+                                <i className="bi bi-graph-up sm:mr-2"></i>
+                                <span className="hidden sm:inline">Statistics</span>
                             </NavLink>
                         </li>
                     </ul>
@@ -147,45 +147,45 @@ const handleDelete = async(id)=>{
             </nav>
 
             {/* Main Content */}
-            <main className="flex-1 p-8">
+            <main className="flex-1 p-4 sm:p-8">
                 <div className="container mx-auto">
-                    <div className="flex justify-between items-center mb-6">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
                         <div>
-                            <h2 className="text-3xl font-bold text-gray-800">Training Management</h2>
+                            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Training Management</h2>
                             <p className="text-gray-600 mt-1">Create and manage CAMA training programs</p>
                         </div>
-                        <button onClick={() => setIsModalOpen(true)} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-5 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-0.5">
-                            <i className="bi bi-plus-circle mr-2"></i>
-                            New Training
+                        <button onClick={() => setIsModalOpen(true)} className="w-full sm:w-auto mt-4 sm:mt-0 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-5 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-0.5">
+                            <i className="bi bi-plus-circle sm:mr-2"></i>
+                            <span className="hidden sm:inline">New Training</span>
                         </button>
                     </div>
 
                     {/* Formations Table */}
                     <div className="bg-white rounded-lg shadow-sm">
-                        <div className="p-5 border-b border-gray-200">
+                        <div className="p-4 sm:p-5 border-b border-gray-200">
                             <h5 className="text-lg font-semibold text-gray-800">
                                 <i className="bi bi-table mr-2"></i>
                                 List of Trainings
                             </h5>
                         </div>
-                        <div className="p-5">
+                        <div className="p-4 sm:p-5">
                             <div className="overflow-x-auto">
                                 <table className="min-w-full bg-white">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Training</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Time</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Registrations</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                            <th className="py-3 px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="py-3 px-2 sm:px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Training</th>
+                                            <th className="py-3 px-2 sm:px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                                            <th className="py-3 px-2 sm:px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Time</th>
+                                            <th className="py-3 px-2 sm:px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                                            <th className="py-3 px-2 sm:px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Registrations</th>
+                                            <th className="py-3 px-2 sm:px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                            <th className="py-3 px-2 sm:px-5 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-200">
                                         {formations.map(formation => (
                                             <tr key={formation._id} className="hover:bg-gray-50 transition-colors duration-200">
-                                                <td className="py-4 px-5">
+                                                <td className="py-4 px-2 sm:px-5">
                                                     <div className="font-semibold text-gray-800">{formation.filename.toUpperCase()}</div>
                                                     <div className="text-sm text-gray-500 mt-1">
                                                         <span className="inline-flex items-center bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs font-semibold mr-2">
@@ -196,24 +196,24 @@ const handleDelete = async(id)=>{
                                                         </span>
                                                     </div>
                                                 </td>
-                                                <td className="py-4 px-5">
+                                                <td className="py-4 px-2 sm:px-5">
                                                     <span className={`inline-flex items-center bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-semibold`}>
                                                         <i className={`bi ${formation?.eventDetails?.categoryEvent === 'concours' ? 'bi-trophy' : 'bi-laptop'} mr-1`}></i> {formation?.eventDetails?.categoryEvent} 
                                                     </span>
                                                 </td>
-                                                <td className="py-4 px-5 text-sm text-gray-600">
+                                                <td className="py-4 px-2 sm:px-5 text-sm text-gray-600">
                                                     <div>{formation?.eventDetails?.startTime ? formation?.eventDetails?.startTime : ''} - {formation?.eventDetails?.endTime ? formation?.eventDetails?.endTime : ''} </div>
                                                 </td>
-                                                <td className="py-4 px-5 text-sm font-semibold text-gray-800">{formation.price > 0 ? formation.price + ' FCFA' : 'Free'}</td>
-                                                <td className="py-4 px-5">
+                                                <td className="py-4 px-2 sm:px-5 text-sm font-semibold text-gray-800">{formation.price > 0 ? formation.price + ' FCFA' : 'Free'}</td>
+                                                <td className="py-4 px-2 sm:px-5">
                                                     <div className="text-sm text-gray-600"><i className="bi bi-people mr-1"></i> {formation?.eventDetails?.apply ? formation?.eventDetails?.apply : 'Unlimited'}</div>
                                                 </td>
-                                                <td className="py-4 px-5">
+                                                <td className="py-4 px-2 sm:px-5">
                                                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold ${formation?.status === 'active' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                                                         <i className={`bi ${formation?.status === 'active' ? 'bi-check-circle' : 'bi-pause-circle'} mr-1`}></i> {formation?.status}
                                                     </span>
                                                 </td>
-                                                <td className="py-4 px-5">
+                                                <td className="py-4 px-2 sm:px-5">
                                                     <div className="flex items-center space-x-2">
                                                         <button
                                                             className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
