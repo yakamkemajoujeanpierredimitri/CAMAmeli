@@ -76,7 +76,7 @@ const AdminTestimonials = () => {
             </header>
 
             {/* Navigation */}
-            <nav className="bg-white shadow-sm sticky top-0 z-40">
+            <nav className="bg-white shadow-sm sticky top-0 ">
                 <div className="container mx-auto">
                     <ul className="flex flex-wrap justify-center p-2">
                         <li className="nav-item">
