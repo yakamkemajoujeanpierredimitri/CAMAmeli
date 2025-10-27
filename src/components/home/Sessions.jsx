@@ -5,7 +5,8 @@ import Card from "../card";
 
 const Sessions = () => {
     const [formations  , setFormations ] = useState([]);
-    useEffect(()=>{n        fetchData();
+    useEffect(()=>{
+             fetchData();
     },[]);
     const fetchData = async()=>{
         const res = await getAllFiles();

@@ -86,11 +86,18 @@ const logout = async ()=>{
                             </div>
                         </div>
                         <div>
+                        <NavLink className="nav-link px-3 py-2 sm:px-6 sm:py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300 flex items-center" activeClassName="active bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-md rounded-lg" to="/">
+                                <i className="bi bi-home sm:mr-2"></i>
+                                <span className="hidden sm:inline">Home</span>
+                            </NavLink>
+                        </div>
+                        <div>
                             <button onClick={() => logout()} className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition duration-300">
                                 <i className="bi bi-box-arrow-right sm:mr-2"></i>
                                 <span className="hidden sm:inline">Logout</span>
                             </button>
                         </div>
+                        
                     </div>
                 </div>
             </header>

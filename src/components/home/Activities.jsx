@@ -63,7 +63,7 @@ const Activities = () => {
                                         <span className="py-1 px-3 rounded-full text-xs font-semibold bg-green-100 text-green-800">Beginner</span>
                                     </div>
                                 </div>
-                                n                                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                           <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                                     <NavLink to="/programs" className="py-2 px-6 sm:py-3 sm:px-8 border-none rounded-md text-base font-semibold cursor-pointer transition-all duration-300 ease-in-out no-underline inline-block text-center bg-gray-800 text-white hover:bg-gray-700 hover:-translate-y-0.5">See the programs</NavLink>
                                     <NavLink to="/contact" className="py-2 px-6 sm:py-3 sm:px-8 rounded-md text-base font-semibold cursor-pointer transition-all duration-300 ease-in-out no-underline inline-block text-center bg-transparent text-gray-800 border-2 border-gray-800 hover:bg-gray-800 hover:text-white hover:-translate-y-0.5">Request info</NavLink>
                                 </div>
