@@ -22,7 +22,7 @@ const About = () => {
                         </div>
                         <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-800">Our Vision</h3>
                         <p className="text-gray-600 leading-relaxed">
-                            To be the reference center in West Africa for academic and professional training, offering innovative programs adapted to market needs. We aspire to create a learning ecosystem that promotes excellence, innovation, and sustainable development.
+                            To be the reference center in Africa for academic and professional training, offering innovative programs adapted to market needs. We aspire to create a learning ecosystem that promotes excellence, innovation, and sustainable development.
                         </p>
                     </div>
                     <div className="bg-white p-6 sm:p-10 rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-1">

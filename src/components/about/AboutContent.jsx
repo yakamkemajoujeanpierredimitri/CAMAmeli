@@ -13,9 +13,9 @@ const AboutContent = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
                                 <div className="history-text">
                                     <h3 className="text-2xl sm:text-3xl mb-4 sm:mb-6 text-gray-800">Foundation and Development</h3>
-                                    <p className="text-gray-600 leading-loose mb-5">The Academic Training Center (CAMA) was established in 2019 with a clear vision: to provide high-quality training for students and professionals looking to advance in their respective fields.</p>
+                                    <p className="text-gray-600 leading-loose mb-5">The Academic Training Center (CAMA) was established in 2025 with a clear vision: to provide high-quality training for students and professionals looking to advance in their respective fields.</p>
                                     <p className="text-gray-600 leading-loose mb-5">Since our inception, we have been dedicated to cultivating a new generation of skilled and forward-thinking professionals across all academic and technical disciplines. Our unique teaching approach blends theoretical knowledge with practical application to ensure a comprehensive and career-focused education.</p>
-                                    <p className="text-gray-600 leading-loose mb-5">We aim to build a learning ecosystem that fosters excellence, innovation, and sustainable growth, tailored to the specific demands of the West African job market.</p>
+                                    <p className="text-gray-600 leading-loose mb-5">We aim to build a learning ecosystem that fosters excellence, innovation, and sustainable growth, tailored to the specific demands of the  African job market.</p>
                                 </div>
                                 <div className="history-image">
                                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CAMA Academic Center" className="w-full rounded-lg shadow-xl" />
@@ -33,7 +33,7 @@ const AboutContent = () => {
                                 <FontAwesomeIcon icon={faEye} className="text-2xl sm:text-3xl text-white" />
                             </div>
                             <h3 className="text-xl sm:text-2xl mb-3 sm:mb-5 text-gray-800 text-center">Our Vision</h3>
-                            <p className="text-gray-600 leading-loose text-center">To be the leading center in West Africa for academic and professional training, offering innovative programs tailored to market needs. We aspire to create a learning ecosystem that fosters excellence, innovation, and sustainable development.</p>
+                            <p className="text-gray-600 leading-loose text-center">To be the leading center in Africa for academic and professional training, offering innovative programs tailored to market needs. We aspire to create a learning ecosystem that fosters excellence, innovation, and sustainable development.</p>
                         </div>
                         
                         <div className="bg-white rounded-lg p-6 sm:p-10 shadow-lg transition duration-300 ease-in-out border border-gray-200 hover:-translate-y-2 hover:shadow-xl">
