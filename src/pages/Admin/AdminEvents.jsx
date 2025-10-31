@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { createFile, getFileByCategory, updateFile } from '../../service/file.service';
+import { createFile, deleteFile, getFileByCategory, updateFile } from '../../service/file.service';
 import DynamicForm from '../../components/admin/DynamicForm';
 
 const AdminEvents = () => {
@@ -72,7 +72,16 @@ const AdminEvents = () => {
         fetchEvents();
     }, []);
 
-   
+   const Handledelete = async(id)=>{
+    const res = await deleteFile(id);
+    if(res.error){
+        console.log(res.error);
+    }
+    if(res.success){
+        setEvents(prev => prev.filter(t => t._id !== id));
+        alert('delete');
+    }
+   }
 
 
 
@@ -232,7 +241,7 @@ const AdminEvents = () => {
                                                         <button className="text-indigo-600 hover:text-indigo-800 transition-colors duration-200" title="View details">
                                                             <i className="bi bi-eye text-lg"></i>
                                                         </button>
-                                                        <button className="text-red-600 hover:text-red-800 transition-colors duration-200" title="Delete">
+                                                        <button onClick={()=>Handledelete(event._id)} className="text-red-600 hover:text-red-800 transition-colors duration-200" title="Delete">
                                                             <i className="bi bi-trash text-lg"></i>
                                                         </button>
                                                     </div>
