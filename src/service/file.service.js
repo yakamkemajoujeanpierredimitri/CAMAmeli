@@ -69,11 +69,23 @@ const deleteFile = async (fileId)=>{
         return { error: errorMessage };
     }
 };
+const applianceNumber = async ()=>{
+    try {
+        const response = await axiosInstance.get('/post/student');
+        console.log(response.data);
+        return { data: response.data };
+    } catch (error) {
+        const errorMessage = error.response?.data?.message || 'Failed to retrieve appliance number';
+        console.error(error);
+        return { error: errorMessage };
+    }
+}
 export {
     deleteFile,
     createFile,
     getAllFiles,
     getFileById,
     getFileByCategory,
-    updateFile
+    updateFile,
+    applianceNumber
 }

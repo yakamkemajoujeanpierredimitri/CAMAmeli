@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { getFileByCategory } from '../../service/file.service';
+import { applianceNumber, getFileByCategory } from '../../service/file.service';
 import { Logout } from '../../service/auth.service';
 import { useAuth } from '../../context/authContext';
 const AdminDashboard = () => {
@@ -12,16 +12,17 @@ const AdminDashboard = () => {
     const [testimonialsCount, setTestimonialsCount] = useState(0);
     const [testimonialsPending, setTestimonialsPending] = useState(0);
     const [studentsCount, setStudentsCount] = useState(0);
-    const { user,dispatch } = useAuth();
+    const { dispatch } = useAuth();
     const navigate = useNavigate();
     useEffect(() => {
 
         const fetchAll = async () => {
             try {
-                const [eventsRes, formationsRes, testimonialsRes] = await Promise.all([
+                const [eventsRes, formationsRes, testimonialsRes ,students] = await Promise.all([
                     getFileByCategory('event'),
                     getFileByCategory('formation'),
                     getFileByCategory('temoignage'),
+                    applianceNumber(),
                 ]);
 
                 if (!eventsRes.error && Array.isArray(eventsRes.data)) {
@@ -45,15 +46,11 @@ const AdminDashboard = () => {
                     setTestimonialsPending(pending);
                 }
 
+                if (!students.error && Array.isArray(students.data)) {
+                    const s = students.data;
+                    setStudentsCount(s.length);
+                }
                 // compute students count as sum of apply fields from events and formations
-                let studentsTotal = 0;
-                if (!eventsRes.error && Array.isArray(eventsRes.data)) {
-                    studentsTotal += eventsRes.data.reduce((sum, ev) => sum + (Number(ev?.eventDetails?.apply) || 0), 0);
-                }
-                if (!formationsRes.error && Array.isArray(formationsRes.data)) {
-                    studentsTotal += formationsRes.data.reduce((sum, f) => sum + (Number(f?.eventDetails?.apply) || 0), 0);
-                }
-                setStudentsCount(studentsTotal);
             } catch (err) {
                 console.error('Failed to fetch dashboard counts', err);
             }
@@ -86,8 +83,19 @@ const logout = async ()=>{
                             </div>
                         </div>
                         <div>
-                        <NavLink className="nav-link px-3 py-2 sm:px-6 sm:py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300 flex items-center" activeClassName="active bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-md rounded-lg" to="/">
-                                <i className="bi bi-home sm:mr-2"></i>
+                            <NavLink
+                                to="/"
+                                title="Go to site home"
+                                aria-label="Go to site home"
+                                className={({ isActive }) =>
+                                    `inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 font-semibold transition duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 ${
+                                        isActive
+                                            ? 'bg-gradient-to-red from-blue-600 to-blue-800 text-white shadow-md'
+                                            : 'text-gray-600 hover:text-blue-600 hover:bg-white/40'
+                                    }`
+                                }
+                            >
+                                <i className="bi bi-house-door-fill text-lg sm:mr-2"></i>
                                 <span className="hidden sm:inline">Home</span>
                             </NavLink>
                         </div>
@@ -107,7 +115,16 @@ const logout = async ()=>{
                 <div className="container mx-auto">
                     <ul className="flex flex-wrap justify-center p-2">
                         <li className="nav-item">
-                            <NavLink className="nav-link px-3 py-2 sm:px-6 sm:py-4 font-semibold text-gray-600 hover:text-blue-600 transition duration-300 flex items-center" activeClassName="active bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-md rounded-lg" to="/admin">
+                            <NavLink
+                                to="/admin"
+                                className={({ isActive }) =>
+                                    `nav-link px-3 py-2 sm:px-6 sm:py-4 font-semibold transition duration-300 flex items-center rounded-lg ${
+                                        isActive
+                                            ? 'bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-md'
+                                            : 'text-gray-600 hover:text-blue-600'
+                                    }`
+                                }
+                            >
                                 <i className="bi bi-speedometer2 sm:mr-2"></i>
                                 <span className="hidden sm:inline">Dashboard</span>
                             </NavLink>

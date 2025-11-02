@@ -3,12 +3,20 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import {useAuth} from '../../context/authContext';
 import { Logout } from '../../service/auth.service';
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getEvents } from '../../service/user.service';
 const Header = () => {
     const { state ,dispatch } = useAuth();
-    const { user } = state;
+    const { user  } = state;
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
+    const [profile , setProfile] = useState(user);
+    useEffect(()=>{
+        setProfile(user);
+        if(user){
+            handleEvents();
+        }
+    },[user])
     const logout = async ()=>{
         const res = await Logout();
         // update client state
@@ -17,6 +25,14 @@ const Header = () => {
         if(res.success){
             navigate('/');
         }
+    }
+    const handleEvents = async ()=>{
+        const res = await getEvents();
+        if(res.error){
+           return console.error('Failed to fetch events:', res.error);
+        }
+         dispatch({type:'EVENTS_UPDATE',payload:res.data});
+        
     }
     return (
         <header className="bg-white shadow-md fixed w-full top-0 z-50">
@@ -32,9 +48,9 @@ const Header = () => {
                         <li><NavLink to="/programs" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Programs</NavLink></li>
                         <li><NavLink to="/gallery" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Gallery</NavLink></li>
                         <li><NavLink to="/contact" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Contact</NavLink></li>
-                        {user?.role === 'admin' &&(<li><NavLink to="/admin" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Admin</NavLink></li>)}
-                        {user?.role === 'user' &&(<li><button onClick={()=>logout()} className={'text-gray-600 hover:text-blue-500 transition duration-300'}>Logout</button ></li>)}
-                        {!user &&(<li><NavLink to="/signin" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Login</NavLink></li>)}
+                        {profile?.role === 'admin' &&(<li><NavLink to="/admin" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Admin</NavLink></li>)}
+                        {profile?.role === 'user' &&(<li><button onClick={()=>logout()} className={'text-gray-600 hover:text-blue-500 transition duration-300'}>Logout</button ></li>)}
+                        {!profile &&(<li><NavLink to="/signin" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-600 hover:text-blue-500 transition duration-300'}>Login</NavLink></li>)}
 
                     </ul>
                     <div className="md:hidden">

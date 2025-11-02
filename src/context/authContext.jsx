@@ -6,6 +6,7 @@ const authInitialState =
     user:null,
     isAuthenticated:false,
     loading:false,
+    events:[],
     error:null
 }
 const authReducer = (state,action)=>{
@@ -44,6 +45,11 @@ const authReducer = (state,action)=>{
                 ...state,
                 user:action.payload
             }
+           case "EVENTS_UPDATE":
+            return{
+                ...state,
+                events:action.payload
+            }
         default:
             return state;
     };
@@ -62,6 +68,7 @@ export const AuthProvider = ({children})=>{
             ///console.log('Auth Check User:', res.data);
             dispatch({type:"AUTH_CHECK",payload:{user:res.data,check:true}});
         }
+        
     }
     return(
         <AuthContext.Provider value={{state,dispatch}}>

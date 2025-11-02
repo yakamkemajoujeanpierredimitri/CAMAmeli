@@ -3,7 +3,6 @@ import React from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import ProgramsHero from '../components/programs/ProgramsHero';
-import ProgramsContent from '../components/programs/ProgramsContent';
 import Sessions from '../components/home/Sessions';
 import ActivitiesContent from '../components/activities/ActivitiesContent';
 

@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Chart from 'chart.js/auto';
-import { getAllFiles } from '../../service/file.service';
+import { applianceNumber, getAllFiles } from '../../service/file.service';
 
 const AdminStatistics = () => {
     const [stats, setStats] = useState(null);
@@ -12,29 +12,39 @@ const AdminStatistics = () => {
     const satisfactionChartRef = useRef(null);
     const geographieChartRef = useRef(null);
     const participationChartRef = useRef(null);
+    const [fetchError, setFetchError] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await getAllFiles();
+            const result = await applianceNumber();
             if (result.error) {
                 console.error(result.error);
+                setFetchError(result.error);
             } else {
+                // helper to read category defensively (some endpoints return item.file.category)
+                const getCategory = (item) => (item?.file?.category) ?? item?.category ?? '';
+
                 // Process data for charts
-                const formations = result.data.filter(file => file.category === 'formation');
-                const events = result.data.filter(file => file.category === 'event');
-                const testimonies = result.data.filter(file => file.category === 'temoignage');
+                const formations = (result.data || []).filter(item => getCategory(item) === 'formation');
+                const events = (result.data || []).filter(item => getCategory(item) === 'event');
+                const testimonies = (result.data || []).filter(item => getCategory(item) === 'temoignage');
 
                 // Example of processing data for one chart
                 const popularFormations = formations.reduce((acc, cur) => {
-                    acc[cur.filename] = (acc[cur.filename] || 0) + 1;
+                    const name = cur?.file?.filename ?? cur.filename ?? cur?.file?.title ?? 'Unknown';
+                    acc[name] = (acc[name] || 0) + 1;
                     return acc;
                 }, {});
 
-                const formationStudents = formations.reduce((acc, cur) => acc + Number(cur.eventDetails?.apply || 0), 0);
-                const eventStudents = events.reduce((acc, cur) => acc + Number(cur.eventDetails?.apply || 0), 0);
+                // Sum apply fields defensively from either file.eventDetails or eventDetails at root
+                const getApply = (it) => Number(it?.file?.eventDetails?.apply ?? it?.eventDetails?.apply ?? 0);
+                const formationStudents = formations.reduce((s, it) => s + getApply(it), 0);
+                const eventStudents = events.reduce((s, it) => s + getApply(it), 0);
+                const totalStudents = formationStudents + eventStudents;
+
                 setStats({
-                    totalStudents: formationStudents + eventStudents,
-                    totalRevenue: result.data.reduce((acc, cur) => acc + Number(cur.price || 0), 0),
+                    totalStudents,
+                    totalRevenue: (result.data || []).reduce((acc, cur) => acc + Number(cur?.file?.price ?? cur?.price ?? 0), 0),
                     popularFormations,
                     totalFormations: formations.length,
                     totalEvents: events.length,
@@ -139,6 +149,13 @@ const AdminStatistics = () => {
                     </ul>
                 </div>
             </nav>
+
+            {/* Error banner */}
+            {fetchError && (
+                <div className="container mx-auto mt-4 px-4">
+                    <div className="bg-red-50 border border-red-200 text-red-700 p-3 rounded-md">Error loading statistics: {String(fetchError)}</div>
+                </div>
+            )}
 
             {/* ... */}
             {/* Main Content */}

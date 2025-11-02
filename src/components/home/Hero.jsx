@@ -25,7 +25,7 @@ const Hero = () => {
                         </div>
                     </div>
                     <div className="relative">
-                        <img src="https://plus.unsplash.com/premium_photo-1682787494765-44d02d12f5be?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Academic Training" className="w-full h-64 sm:h-96 object-cover rounded-lg shadow-2xl" />
+                        <img src="/class.jpg" alt="Academic Training" className="w-full h-64 sm:h-96 object-cover rounded-lg shadow-2xl" />
                         <div className="absolute bottom-[-15px] left-[-15px] sm:bottom-[-30px] sm:left-[-30px] bg-white p-3 sm:p-5 rounded-lg shadow-lg flex items-center gap-2 sm:gap-4">
                             <div className="flex items-center gap-2 sm:gap-4">
                                 <FontAwesomeIcon icon={faUsers} className="text-2xl sm:text-3xl text-blue-500" />
