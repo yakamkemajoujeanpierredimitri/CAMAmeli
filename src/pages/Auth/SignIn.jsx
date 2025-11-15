@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import DynamicForm from '../../components/admin/DynamicForm';
 import { useAuth } from '../../context/authContext';
 import { Login, Sendcode } from '../../service/auth.service';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link ,useSearchParams} from 'react-router-dom';
 
 const SignIn = () => {
     const { dispatch } = useAuth();
+    const [searchParams ,setSearchParams] = useSearchParams();
     const navigate = useNavigate();
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(searchParams.get('error')|| null);
     const [loading, setLoading] = useState(false);
 const [isAdmin ,setIsAdmin] = useState(false);
     const initialvalues = {
