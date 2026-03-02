@@ -1,0 +1,20 @@
+{
+  "short_name": "CAMA",
+  "name": "CAMA  is a platform to connect creators and learners through online courses and events.",
+  "icons": [
+    {
+      "src": "camaimg",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/jpg"
+    },
+    {
+      "src": "class",
+      "type": "image/jpg",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
